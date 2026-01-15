@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Link Example</title>
+</head>
+<body>
+
+    <h1>Contact Us</h1>
+
+    <p>Need help? Reach out! </p>
+
+    <p>📞 Phone: <a href="tel:+1234567890">Call Now</a></p>
+
+    <p>📧 Email: <a href="mailto:help@example.com">Send Email</a></p>
+
+</body>
+</html>

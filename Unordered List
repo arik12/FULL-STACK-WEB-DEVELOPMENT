@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+     <title>Unordered List (ul)</title>
+     <!-- The title of the page displayed in the browser tab -->
+</head>
+
+<body>
+     <!-- Main content of the page starts -->
+
+     <h2>Unordered List Example</h2>
+     <!-- Heading for the UL section -->
+
+
+     <p>Favorite ice cream flavors:</p>
+
+
+     <ul>
+          <!-- Unordered list starts -->
+          <li>Chocolate </li>
+          <!-- Item 1 -->
+          <li>Vanilla </li>
+          <!-- Item 2 -->
+          <li>Strawberry </li>
+          <!-- Item 3 -->
+          <li>Mango </li>
+          <!-- Item 4 -->
+          <li>Pistachio </li>
+          <!-- Item 5 -->
+     </ul>
+     <!-- Unordered list ends -->
+
+</body>
+<!-- Main content ends -->
+
+</html>
+<!-- End of HTML document -->

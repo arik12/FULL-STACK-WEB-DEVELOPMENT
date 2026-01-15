@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Small Tag</title>
+</head>
+<body>
+
+    <h1>New Course Available!</h1>
+    <p>Enroll today! <small>Terms and conditions apply.</small></p>
+
+</body>
+</html>

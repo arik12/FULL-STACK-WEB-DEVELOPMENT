@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MY-Website</title>
+</head>
+<body>
+
+    <h1>Website Link</h1>
+
+    <p>
+        Want to explore something cool?  
+        <a href="https://facebook.com" target="_blank">Click here to visit a website 🌍</a>
+    </p>
+
+</body>
+</html>
+

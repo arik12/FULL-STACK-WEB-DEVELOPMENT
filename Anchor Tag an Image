@@ -1,0 +1,19 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clickable-Image </title>
+</head>
+<body>
+
+    <h1>Clickable Image</h1>
+    <p>Tap the picture — it leads somewhere!</p>
+
+    <a href="https://example.com">
+        <img src="https://facebook.com/" alt="facebook">
+    </a>
+
+</body>
+</html>

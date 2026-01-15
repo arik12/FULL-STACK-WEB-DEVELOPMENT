@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- Declares the document type as HTML5 -->
+
+<html>
+
+<head>
+    <title>Ordered List</title>
+    <!-- The title of the web page, shown in the browser tab -->
+</head>
+
+<body>
+    <!-- Main content of the web page starts here -->
+
+    <h2> Ordered List Example </h2>
+    <!-- Heading for the Ordered List section -->
+
+    <p>Steps to make a cup of tea:</p>
+    <!-- Paragraph describing the list below -->
+
+    <ol>
+        <!-- Ordered list starts -->
+        <li>Boil water in a pan.</li>
+        <!-- First step -->
+        <li>Put a tea bag in a cup.</li>
+        <!-- Second step -->
+        <li>Pour the hot water into the cup.</li>
+        <!-- Third step -->
+        <li>Wait for 2-3 minutes.</li>
+        <!-- Fourth step -->
+        <li>Add sugar or milk if you like.</li>
+        <!-- Fifth step -->
+        <li>Drink and enjoy your tea!</li>
+        <!-- Sixth step -->
+    </ol>
+    <!-- Ordered list ends -->
+
+</body>
+<!-- Main content ends -->
+
+</html>
+<!-- End of HTML document -->

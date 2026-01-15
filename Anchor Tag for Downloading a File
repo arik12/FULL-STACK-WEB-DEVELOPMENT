@@ -1,0 +1,15 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Download Resource</title>
+</head>
+<body>
+
+    <h1>Free eBook Download</h1>
+
+    <a href="free-ebook.pdf" download style="padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;"> Download E-Book 📘 </a>
+
+</body>
+</html>

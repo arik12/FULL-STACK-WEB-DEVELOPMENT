@@ -1,0 +1,14 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sub Tag</title>
+</head>
+<body>
+ 
+    <h1>Chemical Formula</h1>
+    <p>Water chemical formula: H<sub>2</sub>O</p>
+
+</body>
+</html>

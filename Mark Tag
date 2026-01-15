@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mark Tag</title>
+</head>
+<body>
+    <h1>Important Deadline</h1>
+    <p>Remember to submit your project by <mark>Friday 5 PM</mark> to stay on track!</p>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sup Tag</title>
+</head>
+<body>
+    <h1>Einstein’s Equation</h1>
+    <p>Energy formula: E = mc<sup>2</sup></p>
+</body>
+</html>

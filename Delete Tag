@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Tag</title>
+</head>
+<body>
+    <h1>Special Offer</h1>
+    <p>Price: <del>$99</del> $49 – Limited Time Offer!</p>
+</body>
+</html>
