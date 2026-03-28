@@ -2,8 +2,7 @@
 
 ## CSS (Cascading Style Sheets)
 
-Imagine you’re building a house.The walls, doors, and windows create the structure  this is like HTML.  
-But when you paint the walls, add lights, and decorate the rooms, the house becomes beautiful this is what CSS does for a web page.
+Imagine you’re building a house.The walls, doors, and windows create the structure this is like HTML.But when you paint the walls, add lights, and decorate the rooms, the house becomes beautiful this is what CSS does for a web page.
 
 ---
 
