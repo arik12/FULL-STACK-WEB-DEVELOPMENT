@@ -93,7 +93,7 @@ h1 {
 </html>
 
 ```
-# Internal CSS is used to apply styles within a single HTML page using the <style> tag.
+## Internal CSS is used to apply styles within a single HTML page using the <style> tag.
 
 ### 3️⃣ Inline CSS
 
@@ -103,7 +103,7 @@ h1 {
 
 ```
 
-# Inline CSS is used to apply style directly to a specific HTML element.
+## Inline CSS is used to apply style directly to a specific HTML element.
 
 
 
