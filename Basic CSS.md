@@ -75,7 +75,7 @@ h1 {
 
 ```
 
-## Note: External CSS is used to apply styles to multiple HTML pages using a separate CSS file.
+Note: External CSS is used to apply styles to multiple HTML pages using a separate CSS file.
 
 ### 2️⃣ Internal CSS 
 
@@ -98,7 +98,7 @@ h1 {
 </html>
 
 ```
-## Note: Internal CSS is used to apply styles within a single HTML page using the <style> tag.
+Note: Internal CSS is used to apply styles within a single HTML page using the <style> tag.
 
 ### 3️⃣ Inline CSS
 
