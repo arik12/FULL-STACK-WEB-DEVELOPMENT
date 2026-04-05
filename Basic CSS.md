@@ -108,7 +108,7 @@ Note: Internal CSS is used to apply styles within a single HTML page using the <
 
 ```
 
-## Note: Inline CSS is used to apply style directly to a specific HTML element.
+Note: Inline CSS is used to apply style directly to a specific HTML element.
 
 
 
