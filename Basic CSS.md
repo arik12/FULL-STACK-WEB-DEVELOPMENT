@@ -28,3 +28,82 @@ CSS makes web pages visually attractive, user-friendly, and responsive.
 
 ---
 
+
+##  A Short Story About CSS
+
+Once upon a time, there was a simple HTML page living in a browser. It had all the content—headings, paragraphs, and images—but it looked plain and boring .  
+
+One day, CSS came to help! 
+CSS said, *"Let me style you and make you beautiful!"*  
+
+From that day on, the browser started reading the CSS rules and transformed the plain HTML into a colorful, well-designed webpage 🌈.  
+
+
+---
+
+## Three Ways to Add CSS
+
+### 1️⃣ External CSS 
+
+```html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Hello World</h1>
+
+</body>
+</html>
+
+```
+
+```css
+
+h1 {
+  color: blue;
+}
+
+
+```
+
+# External CSS is used to apply styles to multiple HTML pages using a separate CSS file.
+
+### 2️⃣ Internal CSS 
+
+```html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    h1 {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Hello World</h1>
+
+</body>
+</html>
+
+```
+# Internal CSS is used to apply styles within a single HTML page using the <style> tag.
+
+### 3️⃣ Inline CSS
+
+```html
+
+<h1 style="color: red;">Hello World</h1>
+
+```
+
+# Inline CSS is used to apply style directly to a specific HTML element.
+
+
+
