@@ -108,7 +108,7 @@ h1 {
 
 ```
 
-#### Note: Inline CSS is used to apply style directly to a specific HTML element.
+## Note: Inline CSS is used to apply style directly to a specific HTML element.
 
 
 
