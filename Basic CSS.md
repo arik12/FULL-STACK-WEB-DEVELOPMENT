@@ -152,17 +152,25 @@ Value:The style you apply (e.g., blue, red).
 
 Example 1
 
-<p>🍕 I love pizza!</p>
-<p>🏖️ Summer vacation is the best!</p>
+
+```
+
+<p>I love pizza!</p>
+<p>ummer vacation is the best!</p>
 /* Make all paragraphs blue and fun */
 p {
   color: blue; /* text color becomes blue */
   font-size: 18px; /* bigger text for fun */
 }
 
+```
+
+
 
 Example 2
 
+
+```
 
 <!-- Heading and subheading -->
 <h1 id="title">🚀 Big Heading</h1>
@@ -175,3 +183,6 @@ Example 2
   color: navy; /* text color turns navy */
   font-family: 'Arial', sans-serif; /* stylish font */
 }
+
+
+```
