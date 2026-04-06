@@ -52,6 +52,8 @@ With these three ways, even a simple HTML page can become stylish and easy to re
 
 ```html
 
+HTML
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,6 +70,8 @@ With these three ways, even a simple HTML page can become stylish and easy to re
 
 ```css
 
+styles.css
+
 h1 {
   color: blue;
 }
@@ -75,7 +79,7 @@ h1 {
 
 ```
 
-Note: External CSS is used to apply styles to multiple HTML pages using a separate CSS file.
+Note: External CSS is a method where CSS code is written in a separate .css file (like styles.css) and linked to an HTML file using the <link> tag.
 
 ### 2️⃣ Internal CSS 
 
@@ -98,17 +102,76 @@ Note: External CSS is used to apply styles to multiple HTML pages using a separa
 </html>
 
 ```
-Note: Internal CSS is used to apply styles within a single HTML page using the <style> tag.
+Note: Internal CSS is used to apply styles directly inside a single HTML page by using the <style> tag within the <head> section.
 
 ### 3️⃣ Inline CSS
 
 ```html
 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Inline CSS Example</title>
+</head>
+<body>
+
 <h1 style="color: red;">Hello World</h1>
+
+</body>
+</html>
+
+
 
 ```
 
-Note: Inline CSS is used to apply style directly to a specific HTML element.
+Note:Inline CSS applies styling directly within an HTML element by using the style attribute and affecting only that specific element.
 
 
+---
 
+## Understanding CSS Rules
+
+CSS Rule Structure:
+
+```
+
+selector {
+  property: value;
+}
+
+```
+
+Selector: It targets the HTML element (like p, .class, #id) you want to style.
+
+Declaration Block {}: The area where styles are written.
+
+Property: What you want to change (e.g., color, background-color).
+
+Value:The style you apply (e.g., blue, red).
+
+
+Example 1
+
+<p>🍕 I love pizza!</p>
+<p>🏖️ Summer vacation is the best!</p>
+/* Make all paragraphs blue and fun */
+p {
+  color: blue; /* text color becomes blue */
+  font-size: 18px; /* bigger text for fun */
+}
+
+
+Example 2
+
+
+<!-- Heading and subheading -->
+<h1 id="title">🚀 Big Heading</h1>
+<h2 class="subheading">✨ Cool Subheading</h2>
+<p>Normal paragraph</p>
+
+/* Style both heading and subheading together */
+#title,
+.subheading {
+  color: navy; /* text color turns navy */
+  font-family: 'Arial', sans-serif; /* stylish font */
+}
