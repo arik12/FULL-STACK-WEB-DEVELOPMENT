@@ -7,7 +7,6 @@
 
 </div>
 
----
 
 # Introduction 
 
@@ -54,15 +53,14 @@ HTML tells the browser how the content should appear on the screen.
 
 # History of HTML
 
-HTML was created by:
+HTML was invented in 1991 by **Tim Berners-Lee**, a British computer scientist.  
+He created HTML while working at **CERN (European Organization for Nuclear Research)** in Switzerland.
 
-## Tim Berners-Lee
+The main goal of HTML was to make it easier for scientists and researchers to share documents and information through the internet.
 
-in 1991.
+At that time, there was no proper system for connecting documents online. Tim Berners-Lee introduced HTML along with the World Wide Web (WWW), which changed the way people access and share information globally.HTML has improved over time with many updated versions. Today, HTML5 is the latest and most powerful version used for modern web development.
 
-He developed HTML while working at CERN, a research organization in Switzerland.
 
-The main purpose of HTML was to help scientists share documents through the internet easily.
 
 ---
 
