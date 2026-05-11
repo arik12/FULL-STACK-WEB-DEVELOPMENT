@@ -8,7 +8,7 @@
 # Introduction 
 
 Imagine you are building a house.  
-First, you construct the basic structure of the house — walls, doors, windows, roof, and rooms. Without this structure, the house cannot exist properly. In the same way, HTML creates the basic structure of a website.
+First, you construct the basic structure of the house walls, doors, windows, roof and rooms. Without this structure, the house cannot exist properly.In the same way, HTML creates the basic structure of a website.
 
 But a plain structured house does not look attractive. It feels empty and boring.
 
