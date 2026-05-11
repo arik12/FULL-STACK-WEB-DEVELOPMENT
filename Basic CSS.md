@@ -5,9 +5,52 @@
 
 </div>
 
-## CSS (Cascading Style Sheets)
+# Introduction 
 
-Imagine you are building a house.The walls, doors, and windows create the structure this is like HTML.But when you paint the walls, add lights, and decorate the rooms, the house becomes beautiful this is what CSS does for a web page.
+Imagine you are building a house.  
+First, you construct the basic structure of the house — walls, doors, windows, roof, and rooms. Without this structure, the house cannot exist properly. In the same way, HTML creates the basic structure of a website.
+
+But a plain structured house does not look attractive. It feels empty and boring.
+
+Now think about what happens next. You start decorating the house. You paint the walls with beautiful colors, add lights in every room, place stylish furniture, hang curtains, and design everything in a modern way. After decoration, the house becomes beautiful, comfortable, and visually attractive.
+
+This decoration part is exactly what CSS does for a web page.
+
+CSS stands for **Cascading Style Sheets**. It is used to style and design HTML elements. If HTML is the skeleton of a website, then CSS is the skin, colors, and fashion of that website.
+
+With CSS, we can:
+- Add colors to text and background
+- Control layout and spacing
+- Make websites responsive for mobile and desktop
+- Add animations and effects
+- Improve overall user experience
+
+Without CSS, websites would look very plain, just like black-and-white text pages with no design.
+
+So, HTML builds the structure, and CSS makes it beautiful.
+
+---
+
+# History of CSS
+
+CSS was first introduced in **1996** by **Håkon Wium Lie**, while working with the World Wide Web Consortium (W3C).
+
+At that time, HTML was used only for structure, but developers needed a separate system to style webpages properly. Before CSS, developers used to add styling directly inside HTML, which made code messy and difficult to manage.
+
+CSS was created to solve this problem by separating structure (HTML) from design (CSS).
+
+The main idea of CSS was:
+> “Keep content and design separate so websites become easier to build and maintain.”
+
+Over time, CSS improved with new versions:
+- CSS1 introduced basic styling features like colors and fonts
+- CSS2 added layouts and positioning
+- CSS3 introduced modern features like animations, transitions, gradients, and responsive design
+
+Today, CSS3 is widely used in all modern websites and works together with HTML and JavaScript to build complete web applications.
+
+---
+
 
 ---
 
