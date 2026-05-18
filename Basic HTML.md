@@ -7,7 +7,6 @@
 
 </div>
 
-
 # Introduction 
 
 Imagine you are building a house.  
@@ -145,12 +144,15 @@ Without HTML:
 ### 📝 Heading Tags — শিরোনামের জন্য
  
 ```html
-<h1>এটি সবচেয়ে বড় Heading</h1>   <!-- Page এর মূল শিরোনাম -->
-<h2>এটি ২য় বড় Heading</h2>        <!-- Sub-heading -->
-<h3>এটি ৩য় বড় Heading</h3>        <!-- Sub-sub-heading -->
-<h4>এটি ৪র্থ Heading</h4>
-<h5>এটি ৫ম Heading</h5>
-<h6>এটি সবচেয়ে ছোট Heading</h6>   <!-- সবচেয়ে ছোট -->
+
+<h1>এটি সবচেয়ে বড় Heading</h1>   <!-- Font Size: 32px (Default) -->
+<h2>এটি ২য় বড় Heading</h2>        <!-- Font Size: 24px -->
+<h3>এটি ৩য় বড় Heading</h3>        <!-- Font Size: 18.72px -->
+<h4>এটি ৪র্থ Heading</h4>           <!-- Font Size: 16px -->
+<h5>এটি ৫ম Heading</h5>             <!-- Font Size: 13.28px -->
+<h6>এটি সবচেয়ে ছোট Heading</h6>   <!-- Font Size: 10.72px -->
+
+
 ```
 > 💡 `<h1>` থেকে `<h6>` — মোট **6টি** heading tag আছে। বড় থেকে ছোট হয়।
  
@@ -245,26 +247,6 @@ H<sub>2</sub>O
  
 ---
  
-
- 
-### 📊 Table Tags — টেবিলের জন্য
- 
-```html
-<table>              <!-- টেবিল শুরু -->
-    <tr>             <!-- Table Row — একটি সারি -->
-        <th>নাম</th>     <!-- Table Header — bold heading -->
-        <th>বয়স</th>
-    </tr>
-    <tr>
-        <td>রাফি</td>    <!-- Table Data — সাধারণ ঘর -->
-        <td>20</td>
-    </tr>
-</table>
-```
- 
----
-
- 
 ### Semantic Tags — অর্থবহ Layout এর জন্য (HTML5)
  
 ```html
@@ -314,9 +296,7 @@ HTML tags গুলো **case sensitive নয়** — মানে `<P>` আ�
 **৫. `<div>` আর `<span>` এর পার্থক্য মনে রাখো**
 - `<div>` → **Block element** — পুরো লাইন জুড়ে থাকে, নতুন লাইনে শুরু হয়।
 - `<span>` → **Inline element** — লেখার মাঝে থাকে, লাইন ভাঙে না।
-**৬. Semantic tags ব্যবহার করো, শুধু `<div>` নয়**
-অনেকেই সব কিছুতে `<div>` দেয়। কিন্তু `<header>`, `<nav>`, `<main>`, `<footer>` এই semantic tags গুলো ব্যবহার করলে code অনেক **clean, readable এবং SEO-friendly** হয়।
- 
+
 ---
 
 
