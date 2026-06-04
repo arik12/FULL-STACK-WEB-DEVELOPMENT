@@ -264,7 +264,7 @@ HTML এর এমন ট্যাগ যেগুলো দিয়ে ওয়ে�
  
 ---
  
-###  Self-Closing Tags
+###  Self-Closing Tags হলো এমন HTML ট্যাগ যেগুলোর আলাদা closing tag লাগে না।
  
 | Tag | কাজ |
 |-----|-----|
