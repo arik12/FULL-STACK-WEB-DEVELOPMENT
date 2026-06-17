@@ -277,7 +277,7 @@ HTML এর এমন ট্যাগ যেগুলো দিয়ে ওয়ে�
  
 ---
  
-### Conclusion & Tips — মাথায় গেঁথে নাও!
+### Quick Notes
  
 **১. Tags সবসময় lowercase লেখো**
 HTML tags গুলো **case sensitive নয়** — মানে `<P>` আর `<p>` দুটোই কাজ করবে। কিন্তু সবসময় **lowercase** (`<p>`, `<h1>`, `<div>`) লেখাটাই সঠিক এবং professional। বড় হাতে লিখলে browser বুঝবে, কিন্তু দেখতে খারাপ লাগে এবং এটা industry standard না।
@@ -303,5 +303,139 @@ HTML tags গুলো **case sensitive নয়** — মানে `<P>` আ�
 ---
 
 
-
-
+ 
+### HTML Styles — এলিমেন্টকে সাজানোর জন্য
+ 
+`style` attribute দিয়ে কোনো ট্যাগের ভিতরেই সরাসরি color, size, font ইত্যাদি বসিয়ে দেওয়া যায়। মানে আলাদা কোনো ফাইল লাগে না, সাথে সাথেই সাজিয়ে ফেলা যায়।
+ 
+```html
+<!-- এখানে style দিয়ে সরাসরি রং আর সাইজ দিয়ে দিলাম -->
+<p style="color: blue; font-size: 18px;">This is a styled paragraph.</p>
+<!-- color: blue -> লেখা নীল রঙের হয়ে গেল -->
+<!-- font-size: 18px -> লেখার সাইজ একটু বড় হলো -->
+```
+ 
+---
+ 
+### HTML Comments — নিজের নোট রাখার জন্য
+ 
+Comment ব্রাউজারে দেখায় না, শুধু কোডের ভিতরে থাকে। নিজেকে মনে করিয়ে দেওয়ার জন্য বা টিমের অন্যদের বোঝানোর জন্য লেখা হয়।
+ 
+```html
+<!-- এটা একটা কমেন্ট, ব্রাউজার এটা দেখাবে না -->
+<p>This text is visible.</p>
+ 
+<!-- TODO: এখানে পরে আরেকটা প্যারাগ্রাফ যুক্ত করতে হবে -->
+```
+ 
+---
+ 
+### Background Color — পেছনের রং দেওয়ার জন্য
+ 
+`background-color` দিয়ে কোনো বক্স বা element এর পেছনের রং সেট করা হয়।
+ 
+```html
+<!-- div টার পেছনের রং হালকা সবুজ করে দিলাম -->
+<div style="background-color: lightgreen;">
+  Hello World
+</div>
+```
+ 
+---
+ 
+### Text Color — লেখার রং দেওয়ার জন্য
+ 
+`color` দিয়ে লেখার রং বদলানো হয়। সবচেয়ে বেশি ব্যবহৃত একটা প্রোপার্টি এটা।
+ 
+```html
+<!-- লেখার রং লাল করে দিলাম -->
+<p style="color: red;">This text is red colored.</p>
+```
+ 
+---
+ 
+### Border Color — বর্ডারের রং দেওয়ার জন্য
+ 
+`border-color` দিয়ে বর্ডারের রং সেট করা হয়। কিন্তু আগে বর্ডার (width + style) দিতে হবে, নাহলে কোনো বর্ডারই দেখাবে না।
+ 
+```html
+<!-- বর্ডার দিলাম 2px, সলিড লাইন, রং নীল -->
+<p style="border: 2px solid; border-color: blue;">
+  This paragraph has a blue border.
+</p>
+```
+ 
+---
+ 
+### `<blockquote>` — বড় কোনো উক্তি দেখানোর জন্য
+ 
+যখন কোনো বড় উক্তি বা অন্য জায়গা থেকে কপি করা লেখা আলাদাভাবে দেখাতে চাও, তখন এটা ব্যবহার করো। ব্রাউজার এটাকে একটু ভেতরের দিকে সরিয়ে (indent) দেখায়, দেখলেই বোঝা যায় এটা আলাদা কিছু।
+ 
+```html
+<!-- বড় একটা কোটেশন আলাদা ব্লকের মতো দেখাচ্ছে -->
+<blockquote>
+  Stay hungry, stay foolish.
+</blockquote>
+```
+ 
+---
+ 
+### ❝ `<q>` — ছোট উক্তি দেখানোর জন্য
+ 
+ছোট quote, এক লাইনের মধ্যেই বসে যায়। `blockquote` এর মতো আলাদা ব্লক বানায় না। আর মজার বিষয় হলো — ব্রাউজার নিজেই quotation mark (" ") যুক্ত করে দেয়, তোমাকে লিখতে হয় না।
+ 
+```html
+<!-- ব্রাউজার নিজেই quotation mark বসিয়ে দেবে -->
+<p>He said <q>Practice makes perfect</q> in class.</p>
+```
+ 
+---
+ 
+### `<abbr>` — সংক্ষিপ্ত শব্দ বোঝানোর জন্য
+ 
+কোনো শব্দ শর্ট ফর্মে লেখা থাকলে (যেমন HTML, CSS) এবং সেটার ফুল ফর্ম মাউস হোভার করলে দেখাতে চাইলে এটা ব্যবহার করা হয়।
+ 
+```html
+<!-- মাউস hover করলে "HyperText Markup Language" দেখাবে -->
+<abbr title="HyperText Markup Language">HTML</abbr>
+```
+ 
+---
+ 
+###  `<address>` — যোগাযোগের ইনফো দেখানোর জন্য
+ 
+কোনো লেখক বা প্রতিষ্ঠানের contact info (address, email, phone) দেখাতে এটা ব্যবহার হয়। ব্রাউজার এটাকে ডিফল্টভাবে italic করে দেখায়।
+ 
+```html
+<!-- লেখকের contact info দেখানো হচ্ছে -->
+<address>
+  Written by John Doe.<br>
+  Visit us at: example.com<br>
+  Dhaka, Bangladesh
+</address>
+```
+ 
+---
+ 
+### `<cite>` — বই/মুভি/আর্টিকেলের নাম বলার জন্য
+ 
+কোনো বই, মুভি, গান বা আর্টিকেলের নাম রেফারেন্স হিসেবে লিখতে চাইলে এটা ব্যবহার করো। এটা সাধারণত italic দেখায়।
+ 
+```html
+<!-- বইয়ের নাম reference হিসেবে দেখানো হচ্ছে -->
+<p><cite>The Alchemist</cite> is a novel by Paulo Coelho.</p>
+```
+ 
+---
+ 
+### `<bdo>` — লেখার দিক বদলানোর জন্য
+ 
+`bdo` মানে Bi-Directional Override। এটা দিয়ে লেখাকে normal left-to-right এর জায়গায় right-to-left করে দেখানো যায় (বা উল্টোটাও)।
+ 
+```html
+<!-- লেখা ডান থেকে বাম দিকে দেখাবে -->
+<bdo dir="rtl">This text will be reversed!</bdo>
+```
+ 
+---
+ 
