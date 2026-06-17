@@ -430,7 +430,7 @@ Comment ব্রাউজারে দেখায় না, শুধু ক�
  
 ### `<bdo>` — লেখার দিক বদলানোর জন্য
  
-`bdo` মানে Bi-Directional Override। এটা দিয়ে লেখাকে normal left-to-right এর জায়গায় right-to-left করে দেখানো যায় (বা উল্টোটাও)।
+`bdo` মানে Bi-Directional Override। এটা দিয়ে লেখাকে normal left-to-right এর জায়গায় right-to-left করে দেখানো যায়।
  
 ```html
 <!-- লেখা ডান থেকে বাম দিকে দেখাবে -->
