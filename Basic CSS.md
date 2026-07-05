@@ -716,6 +716,317 @@ Total element width =
 ---
 
 
+## 📦 CSS Outline
+ 
+CSS provides the `outline` property to draw a line around an element, outside its border. It doesn't take up space in the layout and doesn't affect other elements' positioning.
+ 
+---
+ 
+### 🔹 Outline Properties
+ 
+* `outline-style` → Sets the style (solid, dashed, dotted, double, etc.)
+* `outline-color` → Sets the color of the outline
+* `outline-width` → Sets the thickness of the outline
+* `outline-offset` → Sets the gap between the outline and the border
+---
+ 
+### 🔹 Example
+ 
+```css
+div {
+  outline-style: solid;
+  outline-color: red;
+  outline-width: 3px;
+  outline-offset: 5px;
+}
+```
+ 
+---
+ 
+### 🔹 Shorthand
+ 
+```css
+div {
+  outline: 3px solid red;
+}
+```
+ 
+---
+ 
+### 🔹 Outline vs Border
+ 
+| Feature | Border | Outline |
+|---|---|---|
+| Takes up space | ✅ Yes | ❌ No |
+| Can style individual sides | ✅ Yes | ❌ No |
+| Affects layout | ✅ Yes | ❌ No |
 
+
+## 📦 CSS Text
+ 
+CSS provides many properties to style and format text — color, alignment, decoration, spacing, transformation, and shadow.
+ 
+---
+ 
+### 🔹 Text Color
+ 
+The `color` property sets the color of text.
+ 
+```css
+h1 {
+  color: red;
+}
+ 
+p {
+  color: #333333;
+}
+```
+ 
+---
+ 
+### 🔹 Text Alignment
+ 
+The `text-align` property sets the horizontal alignment of text.
+ 
+* `left` → Aligns text to the left (default)
+* `right` → Aligns text to the right
+* `center` → Centers the text
+* `justify` → Stretches lines so each line has equal width
+```css
+h1 {
+  text-align: center;
+}
+ 
+p {
+  text-align: justify;
+}
+```
+ 
+`text-align-last` sets how the **last line** of text is aligned.
+ 
+`direction` and `unicode-bidi` can be used to change text direction (e.g., for right-to-left languages like Arabic or Bangla).
+ 
+```css
+p {
+  direction: rtl;
+}
+```
+ 
+`vertical-align` sets the vertical alignment of an inline or table-cell element.
+ 
+```css
+img {
+  vertical-align: middle;
+}
+```
+ 
+---
+ 
+### 🔹 Text Decoration
+ 
+The `text-decoration-line` property is used to add a line to text.
+ 
+* `none` → No line (removes underline from links)
+* `underline` → Underlines text
+* `overline` → Adds a line above text
+* `line-through` → Adds a strikethrough line
+```css
+h1 {
+  text-decoration-line: overline;
+}
+ 
+h2 {
+  text-decoration-line: line-through;
+}
+ 
+h3 {
+  text-decoration-line: underline;
+}
+ 
+a {
+  text-decoration-line: none;
+}
+```
+ 
+`text-decoration-color` sets the color of the decoration line.
+ 
+```css
+h1 {
+  text-decoration-line: underline;
+  text-decoration-color: red;
+}
+```
+ 
+`text-decoration-thickness` sets the thickness of the line.
+ 
+```css
+h1 {
+  text-decoration-line: underline;
+  text-decoration-thickness: 5px;
+}
+```
+ 
+**Shorthand:**
+ 
+```css
+h1 {
+  text-decoration: underline red 5px;
+}
+```
+ 
+---
+ 
+### 🔹 Text Decoration Styles
+ 
+The `text-decoration-style` property sets the style of the decoration line.
+ 
+* `solid` → A single line (default)
+* `double` → A double line
+* `dotted` → A dotted line
+* `dashed` → A dashed line
+* `wavy` → A wavy line
+```css
+h1 {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+}
+ 
+h2 {
+  text-decoration-line: underline;
+  text-decoration-style: double;
+}
+ 
+h3 {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+}
+ 
+h4 {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+}
+ 
+h5 {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+}
+```
+ 
+---
+ 
+### 🔹 Text Transformation
+ 
+The `text-transform` property controls the capitalization of text.
+ 
+* `uppercase` → Transforms text to all UPPERCASE
+* `lowercase` → Transforms text to all lowercase
+* `capitalize` → Capitalizes the First Letter of Each Word
+```css
+p.uppercase {
+  text-transform: uppercase;
+}
+ 
+p.lowercase {
+  text-transform: lowercase;
+}
+ 
+p.capitalize {
+  text-transform: capitalize;
+}
+```
+ 
+---
+ 
+### 🔹 Text Spacing
+ 
+**Text Indentation** — `text-indent` indents the first line of text.
+ 
+```css
+p {
+  text-indent: 50px;
+}
+```
+ 
+**Letter Spacing** — `letter-spacing` sets the space between characters.
+ 
+```css
+h1 {
+  letter-spacing: 3px;
+}
+ 
+h2 {
+  letter-spacing: -2px;
+}
+```
+ 
+**Line Height** — `line-height` sets the space between lines.
+ 
+```css
+p {
+  line-height: 1.8;
+}
+```
+ 
+**Word Spacing** — `word-spacing` sets the space between words.
+ 
+```css
+h1 {
+  word-spacing: 10px;
+}
+ 
+h2 {
+  word-spacing: -5px;
+}
+```
+ 
+**White Space** — `white-space` controls how whitespace inside an element is handled.
+ 
+```css
+p {
+  white-space: nowrap;
+}
+```
+ 
+---
+ 
+### 🔹 Text Shadow
+ 
+The `text-shadow` property adds a shadow to text.
+ 
+**Syntax:** `text-shadow: h-shadow v-shadow blur-radius color;`
+ 
+```css
+h1 {
+  text-shadow: 2px 2px 5px red;
+}
+```
+ 
+**Multiple shadows** can be added by comma-separating values:
+ 
+```css
+h1 {
+  text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff;
+}
+```
+ 
+---
+ 
+### 🔹 Quick Summary Table
+ 
+| Property | Purpose |
+|---|---|
+| `color` | Sets text color |
+| `text-align` | Sets horizontal alignment |
+| `text-decoration` | Adds line (underline, overline, etc.) |
+| `text-decoration-style` | Sets style of decoration line |
+| `text-transform` | Changes text case |
+| `text-indent` | Indents first line |
+| `letter-spacing` | Space between characters |
+| `line-height` | Space between lines |
+| `word-spacing` | Space between words |
+| `white-space` | Controls whitespace handling |
+| `text-shadow` | Adds shadow to text |
+
+ 
 
 
