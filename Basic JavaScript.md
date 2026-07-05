@@ -7,9 +7,7 @@
 
 # Introduction
 
-Imagine you built a house.
-
-You constructed the walls, doors, windows, and roof — that's the structure. Then you painted the walls, added lights, placed furniture, and decorated everything beautifully. Now the house looks amazing.
+Imagine you built a house.You constructed the walls, doors, windows, and roof that's the structure. Then you painted the walls, added lights, placed furniture, and decorated everything beautifully.Now the house looks amazing.
 
 But there's still something missing. The lights don't turn on by themselves. The doors don't lock automatically. There's no security system, no smart features, nothing that *reacts* when you do something.
 
@@ -85,7 +83,7 @@ JavaScript makes web pages dynamic, interactive, and functional — turning a st
 
 Imagine an HTML page with CSS already applied. It has headings, paragraphs, images, and everything looks colorful and well-designed.
 
-But when you click a button — nothing happens. When you submit a form — nothing happens. The page just sits there, looking pretty but lifeless.
+But when you click a button nothing happens. When you submit a form — nothing happens. The page just sits there, looking pretty but lifeless.
 
 Then JavaScript comes in and says, *"I can make your page respond and think!"*
 
@@ -95,7 +93,55 @@ JavaScript can be added in **three ways**, just like CSS:
 - **Internal JavaScript** – using a `<script>` tag inside the HTML page
 - **Inline JavaScript** – writing JS directly inside an HTML element's attribute (like `onclick`)
 
-With JavaScript added, the same page that was once silent and static now responds to clicks, updates itself, validates input, and feels like a real, living application.
+### 🔹 External JavaScript
+ 
+```html
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>Hello World</h1>
+  <button onclick="showMessage()">Click Me</button>
+ 
+  <script src="script.js"></script>
+</body>
+</html>
+```
+ 
+```js
+// script.js
+function showMessage() {
+  alert("Button was clicked!");
+}
+```
+ 
+### 🔹 Internal JavaScript
+ 
+```html
+<!DOCTYPE html>
+<html>
+<body>
+  <h1 id="title">Hello World</h1>
+  <button onclick="changeText()">Click Me</button>
+ 
+  <script>
+    function changeText() {
+      document.getElementById("title").innerHTML = "Text Changed!";
+    }
+  </script>
+</body>
+</html>
+```
+ 
+### 🔹 Inline JavaScript
+ 
+
+ 
+```html
+<button onclick="alert('You clicked the button!')">Click Me</button>
+```
+ 
+---
  
 
 
