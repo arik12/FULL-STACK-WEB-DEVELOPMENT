@@ -1,7 +1,6 @@
 <div align="center">
 
 # JavaScript
-## Web Development Notes
 
 </div>
 
