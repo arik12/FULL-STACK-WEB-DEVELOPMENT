@@ -243,9 +243,6 @@ React is a popular JavaScript library used to create fast and interactive user i
 - Dashboard applications
 - E-commerce websites
 
-Example:
-Facebook, Instagram use React technology.
-
 ---
 
 ## 2. Angular
