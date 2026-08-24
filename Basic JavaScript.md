@@ -305,7 +305,263 @@ Provides ready tools and structure to build applications faster.
 
 
 
+## 🔹 1. Variables — `let`, `const`, `var`
 
+### 📖 Definition (বাংলা)
+**Variable** মানে হলো একটা container বা বাক্স, যেখানে আমরা data রাখি এবং পরে সেই data ব্যবহার করি। JavaScript-এ variable declare করার জন্য তিনটা keyword ব্যবহার হয়: `var`, `let`, এবং `const`।
+
+### 📖 Definition (English)
+A **variable** is a container used to store data values. In JavaScript, you can declare variables using `var`, `let`, or `const` — each with different scoping and reassignment rules.
+
+| Keyword | Scope | Re-declare | Re-assign | Kobe use korbo |
+|---|---|---|---|---|
+| `var` | Function scope | ✅ Yes | ✅ Yes | Purano code, generally avoid করা ভালো |
+| `let` | Block scope | ❌ No | ✅ Yes | Value পরে change হবে এমন ক্ষেত্রে |
+| `const` | Block scope | ❌ No | ❌ No | Value fixed/constant থাকবে এমন ক্ষেত্রে |
+
+### 💻 Example
+```javascript
+var name = "Arik";        // function scoped, purano style
+let age = 25;              // block scoped, change kora jabe
+const country = "Bangladesh"; // block scoped, change kora jabe na
+
+age = 26;        // ✅ thik ache, let re-assign kora jai
+// country = "India"; // ❌ Error dibe, const re-assign kora jai na
+```
+
+### ⚠️ Common Mistakes
+- `const` দিয়ে declare করা variable-এর value পরে পরিবর্তন করার চেষ্টা করলে **error** আসবে।
+- `var` ব্যবহার করলে **hoisting**-এর কারণে অনেক সময় unexpected bug হতে পারে — তাই modern JS-এ `let`/`const` recommend করা হয়।
+
+### 💡 Tip
+> সবসময় default হিসেবে `const` ব্যবহার করো। Value change করা লাগলে তখন `let` ব্যবহার করো। `var` প্রায় avoid করাই ভালো।
+
+---
+
+## 🔹 2. Data Types — String, Number, Boolean, Null, Undefined, Object
+
+### 📖 Definition (বাংলা)
+JavaScript-এ প্রতিটা value-এর একটা **data type** থাকে। এগুলো মূলত দুই ভাগে ভাগ করা যায় — **Primitive** (String, Number, Boolean, Null, Undefined) আর **Non-Primitive/Reference** (Object, Array, Function)।
+
+### 📖 Definition (English)
+A **data type** defines what kind of value a variable holds. JavaScript has primitive types (String, Number, Boolean, Null, Undefined, Symbol, BigInt) and reference types (Object, Array, Function).
+
+### 💻 Example
+```javascript
+let myName = "Arik";        // String — text data
+let myAge = 25;             // Number — integer or float
+let isDeveloper = true;     // Boolean — true/false
+let salary = null;          // Null — intentionally "kono value nai"
+let address;                // Undefined — value assign kora hoyni
+let user = {                // Object — key-value pair
+  name: "Arik",
+  role: "Web Developer"
+};
+
+console.log(typeof myName);      // "string"
+console.log(typeof myAge);       // "number"
+console.log(typeof isDeveloper); // "boolean"
+console.log(typeof salary);      // "object" (ei ta ekta famous JS quirk!)
+console.log(typeof address);     // "undefined"
+```
+
+### ⚠️ Common Mistakes
+- `null` এবং `undefined` গুলিয়ে ফেলা — `undefined` মানে variable-এ কোনো value দেওয়াই হয়নি, আর `null` মানে ইচ্ছাকৃতভাবে "empty" set করা হয়েছে।
+- `typeof null` আসলে `"object"` return করে — এটা JavaScript-এর একটা পুরনো bug, কিন্তু এখন fix করা যাবে না backward compatibility-এর জন্য।
+
+### 💡 Tip
+> `typeof` operator দিয়ে যেকোনো variable-এর data type check করা যায় — debugging-এর সময় খুব কাজে লাগে।
+
+---
+
+## 🔹 3. Operators — Arithmetic, Comparison, Logical
+
+### 📖 Definition (বাংলা)
+**Operator** হলো special symbol যা দিয়ে আমরা values-এর উপর কোনো operation (গণনা, তুলনা, বা logic) করি।
+
+### 📖 Definition (English)
+**Operators** are special symbols used to perform operations on values and variables — such as arithmetic calculations, comparisons, or logical checks.
+
+### 💻 Example — Arithmetic
+```javascript
+let a = 10, b = 3;
+
+console.log(a + b);  // 13 — Addition
+console.log(a - b);  // 7  — Subtraction
+console.log(a * b);  // 30 — Multiplication
+console.log(a / b);  // 3.33 — Division
+console.log(a % b);  // 1  — Modulus (remainder)
+console.log(a ** b); // 1000 — Exponent (power)
+```
+
+### 💻 Example — Comparison
+```javascript
+console.log(5 == "5");   // true  — value check kore, type check kore na
+console.log(5 === "5");  // false — value ar type dutai check kore
+console.log(5 != "5");   // false
+console.log(5 !== "5");  // true
+console.log(5 > 3);      // true
+console.log(5 <= 5);     // true
+```
+
+### 💻 Example — Logical
+```javascript
+let isLoggedIn = true;
+let isAdmin = false;
+
+console.log(isLoggedIn && isAdmin); // false — dutai true hote hobe
+console.log(isLoggedIn || isAdmin); // true  — jekono ekta true hole hobe
+console.log(!isLoggedIn);           // false — reverse kore dey
+```
+
+### ⚠️ Common Mistakes
+- `==` আর `===`-এর difference না বোঝা — সবসময় `===` (strict equality) ব্যবহার করা better practice, কারণ এটা type mismatch এড়িয়ে চলে।
+- Logical operator `&&` আর `||`-এর priority গুলিয়ে ফেলা।
+
+### 💡 Tip
+> Comparison-এর সময় সবসময় `===` এবং `!==` ব্যবহার করো, `==`/`!=` না — unexpected bug থেকে বাঁচবে।
+
+---
+
+## 🔹 4. Input & Output — `prompt()`, `alert()`, `console.log()`
+
+### 📖 Definition (বাংলা)
+Browser-এ user-এর সাথে interact করার জন্য বা developer হিসেবে output দেখার জন্য JavaScript কিছু built-in method দেয় — `prompt()` দিয়ে input নেওয়া যায়, `alert()` দিয়ে popup message দেখানো যায়, আর `console.log()` দিয়ে browser console-এ output print করা যায়।
+
+### 📖 Definition (English)
+JavaScript provides built-in functions for basic input/output: `prompt()` takes user input via a popup, `alert()` displays a popup message, and `console.log()` prints output to the browser's developer console — mainly used for debugging.
+
+### 💻 Example
+```javascript
+// Input neya (browser popup)
+let userName = prompt("Tomar naam ki?");
+
+// Alert box e message dekhano
+alert("Welcome, " + userName + "!");
+
+// Console e output print kora (debugging er jonno best)
+console.log("User entered:", userName);
+console.log("Sum is:", 5 + 10);
+```
+
+### ⚠️ Common Mistakes
+- `prompt()` থেকে আসা value সবসময় **String** টাইপে আসে — number হিসেবে ব্যবহার করতে চাইলে `Number()` দিয়ে convert করতে হয়।
+- Production website-এ `alert()` বেশি ব্যবহার না করা ভালো, কারণ এটা user experience-এর জন্য বিরক্তিকর।
+
+### 💡 Tip
+> Debugging-এর জন্য `console.log()` সবচেয়ে বেশি ব্যবহৃত tool — code-এর কোন জায়গায় সমস্যা হচ্ছে সেটা বের করতে এটা সবচেয়ে সহজ উপায়।
+
+---
+
+## 🔹 5. Conditional Statements — `if`, `else`, `switch`
+
+### 📖 Definition (বাংলা)
+**Conditional statement** ব্যবহার করা হয় কোনো condition-এর উপর ভিত্তি করে আলাদা আলাদা code execute করার জন্য। `if-else` দিয়ে সাধারণ condition check করা হয়, আর অনেকগুলো fixed value check করতে হলে `switch` ব্যবহার করা হয়।
+
+### 📖 Definition (English)
+**Conditional statements** let you execute different blocks of code based on different conditions. `if-else` is used for general condition checking, while `switch` is preferred when comparing a single value against multiple fixed cases.
+
+### 💻 Example — if / else
+```javascript
+let marks = 75;
+
+if (marks >= 80) {
+  console.log("Grade: A+");
+} else if (marks >= 60) {
+  console.log("Grade: A");
+} else {
+  console.log("Grade: F");
+}
+```
+
+### 💻 Example — switch
+```javascript
+let day = "Saturday";
+
+switch (day) {
+  case "Friday":
+    console.log("Weekend শুরু!");
+    break;
+  case "Saturday":
+    console.log("আজকে ছুটি!");
+    break;
+  case "Sunday":
+    console.log("শেষ ছুটির দিন");
+    break;
+  default:
+    console.log("আজকে কাজের দিন");
+}
+```
+
+### ⚠️ Common Mistakes
+- `switch` statement-এ `break` দিতে ভুলে যাওয়া — এতে পরের সব `case` execute হয়ে যায় (fall-through bug)।
+- `if` condition-এর মধ্যে `=` (assignment) আর `==`/`===` (comparison) গুলিয়ে ফেলা।
+
+### 💡 Tip
+> শুধু ২-৩টা fixed value-এর মধ্যে compare করলে `switch` পড়তে সহজ হয়, কিন্তু complex condition (যেমন range check) হলে `if-else` ব্যবহার করাই ভালো।
+
+---
+
+
+## 🔹 6. Loops — `for`, `while`, `do...while`
  
-
+### 📖 Definition (বাংলা)
+**Loop** ব্যবহার করা হয় একই কাজ বারবার repeat করার জন্য, যতক্ষণ না একটা নির্দিষ্ট condition পূরণ হয়। এতে code ছোট থাকে এবং বারবার একই লাইন লিখতে হয় না।
+ 
+### 📖 Definition (English)
+A **loop** is used to execute a block of code repeatedly as long as a specified condition is true — helping avoid writing the same code multiple times.
+ 
+### 💻 Example — for loop
+```javascript
+// for loop e 3ta part thake: initialization; condition; increment/decrement
+for (let i = 1; i <= 5; i++) {
+  // let i = 1        -> initialization: loop shuru howar age ekbar e run hoy, counter set kore
+  // i <= 5            -> condition: protibar loop body run howar age check hoy, true thakle loop cholte thake
+  // i++               -> increment: protibar loop body run howar por i-r man 1 kore barbe
+  console.log(i);       // loop body: ei code ta protibar run hobe jotokkhon condition true thake
+}
+```
+ 
+**Part-wise explanation:**
+- `let i = 1` → **Initialization** — counter variable declare o set kore, loop shuru howar somoy shudhu 1 bar run hoy।
+- `i <= 5` → **Condition** — প্রতিবার loop body execute howar age check hoy, true hole loop chole, false hole loop theme jai।
+- `i++` → **Increment/Decrement** — protibar body run shesh hole counter update hoy, na hole infinite loop hoye jabe।
+### 💻 Example — while loop
+```javascript
+let i = 1;            // initialization: loop-er baire condition check howar age counter set kora hoy
+ 
+while (i <= 5) {       // condition: age check hoy, true hole tobei loop body-te dhoke
+  console.log(i);       // loop body: condition true thakle ei code run hobe
+  i++;                  // increment: body-r ses e counter update kora hoy, na hole loop kokhono thambe na
+}
+```
+ 
+**Part-wise explanation:**
+- `let i = 1;` → loop shuru howar age counter alada line-e set korte hoy (for loop-er moto ekshathe na)।
+- `while (i <= 5)` → **Condition** — body-te dhokar age protibar check hoy, condition false hole loop ekbare o run hobe na।
+- `i++` → **Increment** — body-r vitore manually likhte hoy, na hole condition kখনো false hobe na।
+### 💻 Example — do...while loop
+```javascript
+let i = 1;            // initialization: counter set kora
+ 
+do {
+  console.log(i);       // loop body: condition check howar AGE ekbar obosshoi run hobe
+  i++;                  // increment: protibar body run howar por counter update hoy
+} while (i <= 5);      // condition: body run howar POR check hoy, true hole abar loop cholbe
+```
+ 
+**Part-wise explanation:**
+- `let i = 1;` → counter age theke set kora hoy, jemon while loop-e hoy।
+- `do { ... }` → **Loop body** — eikhane condition check howar age e ekbar mandatory run hoy, eta e `while` theke main difference।
+- `while (i <= 5);` → **Condition** — body run howar por check hoy; true hole abar loop e dhoke, false hole loop shesh, ar `;` dite hobe seshe।
+### ⚠️ Common Mistakes
+- Loop-এর ভিতরে counter variable (`i++`) update করতে ভুলে গেলে **infinite loop** হয়ে যায় — browser hang হয়ে যেতে পারে।
+- `while` আর `do...while`-এর difference না বোঝা — `do...while` এ condition false হলেও body একবার অবশ্যই run হবে।
+- `for` loop-এ 3টা part (initialization; condition; increment)-এর মধ্যে সঠিক জায়গায় `;` না দেওয়া — syntax error দিবে।
+- `do...while`-এর শেষে `;` (semicolon) দিতে ভুলে যাওয়া — এটা while loop থেকে ভিন্ন, do...while-এ শেষে `;` লাগবেই।
+- `while` loop-এ counter (`i++`) body-এর ভিতরে লিখতে ভুলে যাওয়া — condition কখনো false না হয়ে infinite loop হয়ে যায়।
+### 💡 Tip
+> কতবার loop চালাতে হবে সেটা আগে থেকে জানা থাকলে `for` loop ব্যবহার করো — কারণ initialization, condition, increment সব একসাথে থাকে তাই readable। Condition-based repeat (কতবার run হবে জানা নাই) হলে `while` ব্যবহার করো। আর body অন্তত একবার run হওয়া লাগবেই এমন ক্ষেত্রে `do...while` ব্যবহার করো।
+ 
+---
 
