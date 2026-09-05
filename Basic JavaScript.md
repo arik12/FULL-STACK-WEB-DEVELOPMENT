@@ -54,7 +54,7 @@ Today, JavaScript is one of the **most popular programming languages in the worl
 
 ## What is JavaScript?
 
-JavaScript is a programming language that makes web pages interactive. While HTML gives structure and CSS gives style, JavaScript gives **behavior** — it decides what happens when a user clicks a button, submits a form, scrolls the page, or interacts in any way.
+JavaScript is a programming language that makes web pages interactive. While HTML gives structure and CSS gives style, JavaScript gives **behavior**  it decides what happens when a user clicks a button, submits a form, scrolls the page, or interacts in any way.
 
 In simple terms:
 
