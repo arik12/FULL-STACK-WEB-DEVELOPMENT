@@ -979,7 +979,7 @@ console.log(numbers); // [1, 5, 25, 40, 100]
 
 ---
 
-### 💻 Example — Reverse an Array with `reverse()`
+### Example — Reverse an Array with `reverse()`
 
 ```javascript
 let fruits = ["Apple", "Mango", "Banana"];
@@ -997,7 +997,7 @@ console.log(fruits);
 
 ---
 
-### 💻 Example — Check if it's an Array with `Array.isArray()`
+### Example — Check if it's an Array with `Array.isArray()`
 
 ```javascript
 let fruits = ["Apple", "Mango"];
@@ -1009,7 +1009,7 @@ console.log(Array.isArray(name)); // false
 
 ---
 
-### 💻 Example — Nested Arrays (Array of Arrays)
+### Example — Nested Arrays (Array of Arrays)
 
 ```javascript
 let matrix = [
@@ -1021,11 +1021,11 @@ let matrix = [
 console.log(matrix[1][2]); // 6
 ```
 
-> Nested Array-এর element access করতে দুইটা index ব্যবহার করতে হয় — প্রথমটা outer Array-এর, দ্বিতীয়টা inner Array-এর।
+> Nested Array-এর element access করতে দুইটা index ব্যবহার করতে হয় প্রথমটা outer Array-এর, দ্বিতীয়টা inner Array-এর।
 
 ---
 
-### 📌 Common Array Methods
+### Common Array Methods
 
 | Method        | Description                                        |
 | ------------- | --------------------------------------------------- |
@@ -1062,10 +1062,10 @@ console.log(matrix[1][2]); // 6
 
 ### 💡 Tips
 
-* একই ধরনের অনেকগুলো value যদি আলাদা আলাদা variable-এ রাখো, তাহলে কোড অনেক বড় আর এলোমেলো হয়ে যায়। তার বদলে একটা **Array**-তে সব value একসাথে রাখো — কোড ছোট থাকে, আর পরে কাজ করাও সহজ হয়।
-* Array শেখার শুরুতে `push()`, `pop()`, `shift()`, `unshift()` — এই চারটা method ভালোভাবে practice করো। এগুলো দিয়ে Array-এর শুরুতে বা শেষে element যোগ করা এবং বাদ দেওয়া শেখা যায়, এবং বাকি সব method বোঝার basic এখান থেকেই তৈরি হয়।
-* Basic method গুলো আয়ত্ত হয়ে গেলে `map()`, `filter()`, `reduce()` শেখো। এই তিনটা method দিয়ে পুরো Array-এর উপর একবারে কাজ করা যায় — যেমন সব element পরিবর্তন করা, নির্দিষ্ট শর্ত অনুযায়ী element বাছাই করা, অথবা সব element মিলিয়ে একটা মাত্র ফলাফল বের করা।
-* `slice()` আর `splice()` দেখতে প্রায় একই রকম, কিন্তু কাজ আলাদা। `slice()` শুধু Array-এর একটা অংশের কপি বানায়, original Array-তে কোনো পরিবর্তন হয় না। `splice()` সরাসরি original Array-তে element যোগ বা বাদ দেয়। এই পার্থক্যটা মনে রাখা জরুরি, নাহলে ভুল জায়গায় ভুল method ব্যবহার হয়ে যেতে পারে।
-* যেকোনো নতুন method শেখার পর শুধু পড়ে বা দেখে গেলে বেশিদিন মনে থাকে না। নিজে একটা ছোট example বানিয়ে code editor-এ রান করে দেখো — এতে method গুলো কীভাবে কাজ করে তা ভালোভাবে বোঝা যায় এবং মনেও থাকে বেশি দিন।
+* একই ধরনের অনেকগুলো value যদি আলাদা আলাদা variable-এ রাখো তাহলে কোড অনেক বড় আর এলোমেলো হয়ে যায়। তার বদলে একটা **Array**-তে সব value একসাথে রাখো কোড ছোট থাকে, আর পরে কাজ করাও সহজ হয়।
+* Array শেখার শুরুতে `push()`, `pop()`, `shift()`, `unshift()` এই চারটা method ভালোভাবে practice করো। এগুলো দিয়ে Array-এর শুরুতে বা শেষে element যোগ করা এবং বাদ দেওয়া শেখা যায়, এবং বাকি সব method বোঝার basic এখান থেকেই তৈরি হয়।
+* Basic method গুলো আয়ত্ত হয়ে গেলে `map()`, `filter()`, `reduce()` শেখো। এই তিনটা method দিয়ে পুরো Array-এর উপর একবারে কাজ করা যায় যেমন সব element পরিবর্তন করা, নির্দিষ্ট শর্ত অনুযায়ী element বাছাই করা, অথবা সব element মিলিয়ে একটা মাত্র ফলাফল বের করা।
+* `slice()` আর `splice()` দেখতে প্রায় একই রকম, কিন্তু কাজ আলাদা। `slice()` শুধু Array-এর একটা অংশের কপি বানায়, original Array তে কোনো পরিবর্তন হয় না। `splice()` সরাসরি original Array-তে element যোগ বা বাদ দেয়। এই পার্থক্যটা মনে রাখা জরুরি নাহলে ভুল জায়গায় ভুল method ব্যবহার হয়ে যেতে পারে।
+* যেকোনো নতুন method শেখার পর শুধু পড়ে বা দেখে গেলে বেশিদিন মনে থাকে না। নিজে একটা ছোট example বানিয়ে code editor এ রান করে দেখো  এতে method গুলো কীভাবে কাজ করে তা ভালোভাবে বোঝা যায় এবং মনেও থাকে বেশি দিন।
 
 ---
