@@ -565,3 +565,507 @@ do {
  
 ---
 
+
+## 🔹 7. Arrays — Store Multiple Values
+
+### 📖 Definition (বাংলা)
+
+**Array** হলো JavaScript-এর একটি data structure, যেখানে একটি single variable-এর মধ্যে একাধিক value store করা যায়। Array-এর প্রতিটি value একটি নির্দিষ্ট **index**-এর মাধ্যমে access করা যায়, এবং index সবসময় `0` থেকে শুরু হয়।
+
+### 📖 Definition (English)
+
+An **Array** is a JavaScript data structure used to store multiple values in a single variable. Each value can be accessed using an **index**, which starts from `0`.
+
+---
+
+### 💻 Example — Create an Array
+
+```javascript
+let fruits = ["Apple", "Mango", "Banana"];
+
+console.log(fruits);
+```
+
+**Output:**
+
+```text
+["Apple", "Mango", "Banana"]
+```
+
+---
+
+### 💻 Example — Access Array Elements
+
+```javascript
+let fruits = ["Apple", "Mango", "Banana"];
+
+console.log(fruits[0]); // Apple
+console.log(fruits[1]); // Mango
+console.log(fruits[2]); // Banana
+```
+
+> 💡 Array-এর first element-এর index হলো `0`, second element-এর `1`, এবং third element-এর `2`।
+
+---
+
+### 💻 Example — Change an Array Element
+
+```javascript
+let fruits = ["Apple", "Mango", "Banana"];
+
+fruits[1] = "Orange";
+
+console.log(fruits);
+```
+
+**Output:**
+
+```text
+["Apple", "Orange", "Banana"]
+```
+
+---
+
+### 💻 Example — Array Length
+
+```javascript
+let colors = ["Red", "Blue", "Green", "Black"];
+
+console.log(colors.length); // 4
+```
+
+> `length` property ব্যবহার করে Array-এর মোট element সংখ্যা জানা যায়।
+
+---
+
+### 💻 Example — Add Elements with `push()`
+
+`push()` method ব্যবহার করে Array-এর শেষে নতুন element যোগ করা যায়।
+
+```javascript
+let fruits = ["Apple", "Mango"];
+
+fruits.push("Banana");
+
+console.log(fruits);
+```
+
+**Output:**
+
+```text
+["Apple", "Mango", "Banana"]
+```
+
+---
+
+### 💻 Example — Remove Element with `pop()`
+
+`pop()` method Array-এর শেষ element remove করে।
+
+```javascript
+let fruits = ["Apple", "Mango", "Banana"];
+
+fruits.pop();
+
+console.log(fruits);
+```
+
+**Output:**
+
+```text
+["Apple", "Mango"]
+```
+
+---
+
+### 💻 Example — Add Element with `unshift()`
+
+`unshift()` method ব্যবহার করে Array-এর শুরুতে নতুন element যোগ করা যায়।
+
+```javascript
+let fruits = ["Mango", "Banana"];
+
+fruits.unshift("Apple");
+
+console.log(fruits);
+```
+
+**Output:**
+
+```text
+["Apple", "Mango", "Banana"]
+```
+
+---
+
+### 💻 Example — Remove Element with `shift()`
+
+`shift()` method Array-এর প্রথম element remove করে।
+
+```javascript
+let fruits = ["Apple", "Mango", "Banana"];
+
+fruits.shift();
+
+console.log(fruits);
+```
+
+**Output:**
+
+```text
+["Mango", "Banana"]
+```
+
+---
+
+### 💻 Example — Find an Element with `includes()`
+
+`includes()` method ব্যবহার করে কোনো element Array-এর মধ্যে আছে কি না check করা যায়।
+
+```javascript
+let fruits = ["Apple", "Mango", "Banana"];
+
+console.log(fruits.includes("Mango")); // true
+console.log(fruits.includes("Orange")); // false
+```
+
+---
+
+### 💻 Example — Find Index with `indexOf()`
+
+`indexOf()` method কোনো element-এর index খুঁজে বের করে।
+
+```javascript
+let fruits = ["Apple", "Mango", "Banana"];
+
+console.log(fruits.indexOf("Mango")); // 1
+console.log(fruits.indexOf("Orange")); // -1
+```
+
+> Element না পাওয়া গেলে `indexOf()` `-1` return করে।
+
+---
+
+### 💻 Example — Loop Through an Array
+
+```javascript
+let fruits = ["Apple", "Mango", "Banana"];
+
+for (let i = 0; i < fruits.length; i++) {
+  console.log(fruits[i]);
+}
+```
+
+**Output:**
+
+```text
+Apple
+Mango
+Banana
+```
+
+---
+
+### 💻 Example — Loop with `for...of`
+
+`for...of` loop দিয়ে সরাসরি Array-এর value গুলো access করা যায়, index ছাড়াই।
+
+```javascript
+let fruits = ["Apple", "Mango", "Banana"];
+
+for (let fruit of fruits) {
+  console.log(fruit);
+}
+```
+
+**Output:**
+
+```text
+Apple
+Mango
+Banana
+```
+
+---
+
+### 💻 Example — Loop with `forEach()`
+
+`forEach()` method Array-এর প্রতিটি element-এর উপর একটি function চালায়।
+
+```javascript
+let fruits = ["Apple", "Mango", "Banana"];
+
+fruits.forEach(function (fruit, index) {
+  console.log(index, fruit);
+});
+```
+
+**Output:**
+
+```text
+0 Apple
+1 Mango
+2 Banana
+```
+
+---
+
+### 💻 Example — Array with Numbers
+
+```javascript
+let numbers = [10, 20, 30, 40, 50];
+
+console.log(numbers[0]); // 10
+console.log(numbers[3]); // 40
+```
+
+---
+
+### 💻 Example — Mixed Data Types
+
+JavaScript Array-তে বিভিন্ন ধরনের data রাখা সম্ভব।
+
+```javascript
+let student = ["Arik", 25, true];
+
+console.log(student[0]); // Arik
+console.log(student[1]); // 25
+console.log(student[2]); // true
+```
+
+---
+
+### 💻 Example — Join Array into a String with `join()`
+
+`join()` method Array-এর সব element-কে একটি string-এ convert করে, নির্দিষ্ট separator দিয়ে।
+
+```javascript
+let fruits = ["Apple", "Mango", "Banana"];
+
+console.log(fruits.join(", "));
+```
+
+**Output:**
+
+```text
+Apple, Mango, Banana
+```
+
+---
+
+### 💻 Example — Extract Part of an Array with `slice()`
+
+`slice(start, end)` method Array থেকে একটি অংশ copy করে নতুন Array হিসেবে return করে। Original Array পরিবর্তন হয় না।
+
+```javascript
+let fruits = ["Apple", "Mango", "Banana", "Orange"];
+
+let citrus = fruits.slice(1, 3);
+
+console.log(citrus);
+console.log(fruits);
+```
+
+**Output:**
+
+```text
+["Mango", "Banana"]
+["Apple", "Mango", "Banana", "Orange"]
+```
+
+---
+
+### 💻 Example — Add/Remove Elements Anywhere with `splice()`
+
+`splice(start, deleteCount, ...items)` method Array-এর যেকোনো জায়গায় element যোগ বা remove করতে পারে। এটি Original Array পরিবর্তন করে।
+
+```javascript
+let fruits = ["Apple", "Mango", "Banana"];
+
+// Remove 1 element from index 1
+fruits.splice(1, 1);
+console.log(fruits); // ["Apple", "Banana"]
+
+// Add elements at index 1 without removing
+fruits.splice(1, 0, "Orange", "Grape");
+console.log(fruits); // ["Apple", "Orange", "Grape", "Banana"]
+```
+
+---
+
+### 💻 Example — Transform an Array with `map()`
+
+`map()` method প্রতিটি element-এর উপর একটি function চালিয়ে নতুন একটি Array return করে।
+
+```javascript
+let numbers = [1, 2, 3, 4];
+
+let doubled = numbers.map(function (num) {
+  return num * 2;
+});
+
+console.log(doubled);
+```
+
+**Output:**
+
+```text
+[2, 4, 6, 8]
+```
+
+---
+
+### 💻 Example — Filter an Array with `filter()`
+
+`filter()` method একটি condition-এর ভিত্তিতে নতুন Array তৈরি করে, যেখানে শুধু matching element গুলো থাকে।
+
+```javascript
+let numbers = [1, 2, 3, 4, 5, 6];
+
+let evenNumbers = numbers.filter(function (num) {
+  return num % 2 === 0;
+});
+
+console.log(evenNumbers);
+```
+
+**Output:**
+
+```text
+[2, 4, 6]
+```
+
+---
+
+### 💻 Example — Reduce an Array with `reduce()`
+
+`reduce()` method Array-এর সব element-কে একটি single value-তে convert করে।
+
+```javascript
+let numbers = [1, 2, 3, 4];
+
+let sum = numbers.reduce(function (total, num) {
+  return total + num;
+}, 0);
+
+console.log(sum);
+```
+
+**Output:**
+
+```text
+10
+```
+
+---
+
+### 💻 Example — Sort an Array with `sort()`
+
+`sort()` method Array-এর element গুলোকে order করে। Number sort করার সময় compare function ব্যবহার করা জরুরি।
+
+```javascript
+let fruits = ["Banana", "Apple", "Mango"];
+fruits.sort();
+console.log(fruits); // ["Apple", "Banana", "Mango"]
+
+let numbers = [40, 100, 1, 5, 25];
+numbers.sort(function (a, b) {
+  return a - b;
+});
+console.log(numbers); // [1, 5, 25, 40, 100]
+```
+
+> ⚠️ Compare function ছাড়া `sort()` numbers-কে string হিসেবে sort করে, যা ভুল result দেয় (যেমন: `100` `25`-এর আগে চলে আসে)।
+
+---
+
+### 💻 Example — Reverse an Array with `reverse()`
+
+```javascript
+let fruits = ["Apple", "Mango", "Banana"];
+
+fruits.reverse();
+
+console.log(fruits);
+```
+
+**Output:**
+
+```text
+["Banana", "Mango", "Apple"]
+```
+
+---
+
+### 💻 Example — Check if it's an Array with `Array.isArray()`
+
+```javascript
+let fruits = ["Apple", "Mango"];
+let name = "Arik";
+
+console.log(Array.isArray(fruits)); // true
+console.log(Array.isArray(name)); // false
+```
+
+---
+
+### 💻 Example — Nested Arrays (Array of Arrays)
+
+```javascript
+let matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+
+console.log(matrix[1][2]); // 6
+```
+
+> Nested Array-এর element access করতে দুইটা index ব্যবহার করতে হয় — প্রথমটা outer Array-এর, দ্বিতীয়টা inner Array-এর।
+
+---
+
+### 📌 Common Array Methods
+
+| Method        | Description                                        |
+| ------------- | --------------------------------------------------- |
+| `push()`      | Adds an element to the end                          |
+| `pop()`       | Removes the last element                             |
+| `unshift()`   | Adds an element to the beginning                     |
+| `shift()`     | Removes the first element                            |
+| `includes()`  | Checks whether an element exists                     |
+| `indexOf()`   | Finds the index of an element                        |
+| `length`      | Returns the number of elements                       |
+| `join()`      | Joins all elements into a string                     |
+| `slice()`     | Copies a portion of an array (non-destructive)       |
+| `splice()`    | Adds/removes elements at any position (destructive)  |
+| `map()`       | Creates a new array by transforming each element     |
+| `filter()`    | Creates a new array with elements matching a condition |
+| `reduce()`    | Reduces the array to a single value                  |
+| `sort()`      | Sorts the elements of an array                       |
+| `reverse()`   | Reverses the order of elements                       |
+| `Array.isArray()` | Checks whether a value is an array                |
+
+---
+
+### ⚠️ Common Mistakes
+
+* Array index `0` থেকে শুরু হয়, `1` থেকে নয়।
+* Non-existing index access করলে `undefined` return করে।
+* `push()` এবং `unshift()` element যোগ করে।
+* `pop()` এবং `shift()` element remove করে।
+* `length` হলো মোট element-এর সংখ্যা, শেষ index নয়।
+* `indexOf()` element না পেলে `-1` return করে।
+* `sort()` compare function ছাড়া ব্যবহার করলে numbers ভুলভাবে sort হয়।
+* `slice()` original Array পরিবর্তন করে না, কিন্তু `splice()` করে — এই পার্থক্য মনে রাখা জরুরি।
+* `map()`, `filter()`, `reduce()` — এই তিনটা method সবসময় নতুন value/Array return করে, original Array পরিবর্তন করে না।
+
+### 💡 Tips
+
+* একই ধরনের অনেকগুলো value যদি আলাদা আলাদা variable-এ রাখো, তাহলে কোড অনেক বড় আর এলোমেলো হয়ে যায়। তার বদলে একটা **Array**-তে সব value একসাথে রাখো — কোড ছোট থাকে, আর পরে কাজ করাও সহজ হয়।
+* Array শেখার শুরুতে `push()`, `pop()`, `shift()`, `unshift()` — এই চারটা method ভালোভাবে practice করো। এগুলো দিয়ে Array-এর শুরুতে বা শেষে element যোগ করা এবং বাদ দেওয়া শেখা যায়, এবং বাকি সব method বোঝার basic এখান থেকেই তৈরি হয়।
+* Basic method গুলো আয়ত্ত হয়ে গেলে `map()`, `filter()`, `reduce()` শেখো। এই তিনটা method দিয়ে পুরো Array-এর উপর একবারে কাজ করা যায় — যেমন সব element পরিবর্তন করা, নির্দিষ্ট শর্ত অনুযায়ী element বাছাই করা, অথবা সব element মিলিয়ে একটা মাত্র ফলাফল বের করা।
+* `slice()` আর `splice()` দেখতে প্রায় একই রকম, কিন্তু কাজ আলাদা। `slice()` শুধু Array-এর একটা অংশের কপি বানায়, original Array-তে কোনো পরিবর্তন হয় না। `splice()` সরাসরি original Array-তে element যোগ বা বাদ দেয়। এই পার্থক্যটা মনে রাখা জরুরি, নাহলে ভুল জায়গায় ভুল method ব্যবহার হয়ে যেতে পারে।
+* যেকোনো নতুন method শেখার পর শুধু পড়ে বা দেখে গেলে বেশিদিন মনে থাকে না। নিজে একটা ছোট example বানিয়ে code editor-এ রান করে দেখো — এতে method গুলো কীভাবে কাজ করে তা ভালোভাবে বোঝা যায় এবং মনেও থাকে বেশি দিন।
+
+---
