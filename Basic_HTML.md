@@ -437,7 +437,478 @@ Comment ব্রাউজারে দেখায় না, শুধু ক�
 <bdo dir="rtl">This text will be reversed!</bdo>
 ```
  
---- 
+---
+
+## HTML Table
+
+### Table Basics — টেবিল বানানোর নিয়ম
+
+`<table>` দিয়ে টেবিল শুরু হয়। `<tr>` মানে row, `<th>` মানে header cell, আর `<td>` মানে normal data cell।
+
+```html
+<!-- সবচেয়ে সহজ একটা টেবিল -->
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Arik</td>
+    <td>24</td>
+  </tr>
+</table>
+```
+
+| Tag | কাজ |
+|-----|-----|
+| `<table>` | পুরো টেবিল |
+| `<tr>` | একটা row |
+| `<th>` | header cell (bold + center হয়) |
+| `<td>` | data cell |
+| `<caption>` | টেবিলের টাইটেল |
+
+---
+
+### Table Border — টেবিলের বর্ডার
+
+`border` property দিয়ে টেবিল আর cell এর চারপাশে দাগ দেওয়া হয়। শুধু `table` এ দিলে বাইরের বক্সে বর্ডার আসে, ভেতরে পেতে চাইলে `th` আর `td` তেও দিতে হয়।
+
+```html
+<style>
+  table, th, td {
+    border: 1px solid black; /* 1px মোটা, solid লাইন, কালো রং */
+  }
+</style>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>City</th>
+  </tr>
+  <tr>
+    <td>Arik</td>
+    <td>Dhaka</td>
+  </tr>
+</table>
+```
+
+---
+
+### Border Collapse — ডবল বর্ডার ঠিক করা
+
+ডিফল্টে প্রতিটা cell এর আলাদা বর্ডার থাকে, তাই ডবল দাগ দেখা যায়। `border-collapse: collapse` দিলে দাগগুলো এক হয়ে যায়।
+
+```html
+<style>
+  table {
+    border-collapse: collapse; /* ডবল বর্ডার মিশিয়ে একটা করে দিলাম */
+  }
+  th, td {
+    border: 1px solid #333;
+  }
+</style>
+```
+
+**Extra:** বর্ডারের কোণা গোল করতে চাইলে `border-radius` লাগে, কিন্তু সেটা `border-collapse: separate` এর সাথে ভালো কাজ করে।
+
+---
+
+### Table Size — টেবিলের width আর height
+
+`width` আর `height` দিয়ে টেবিলের সাইজ ঠিক করা হয়। `%` দিলে parent এর তুলনায় সাইজ হয়, `px` দিলে fixed হয়।
+
+```html
+<style>
+  table {
+    width: 100%;   /* পুরো জায়গা জুড়ে থাকবে */
+  }
+  th {
+    height: 50px;  /* header এর উচ্চতা */
+  }
+  td:first-child {
+    width: 30%;    /* প্রথম column টা 30% জায়গা নেবে */
+  }
+</style>
+```
+
+---
+
+### Table Header — th এর স্টাইল
+
+`<th>` ডিফল্টে bold আর center থাকে। CSS দিয়ে রং, alignment বদলানো যায়।
+
+```html
+<style>
+  th {
+    background-color: #4CAF50; /* সবুজ ব্যাকগ্রাউন্ড */
+    color: white;              /* সাদা লেখা */
+    text-align: left;          /* বাম দিকে লেখা */
+  }
+</style>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Price</th>
+  </tr>
+  <tr>
+    <td>Pen</td>
+    <td>10 Tk</td>
+  </tr>
+</table>
+```
+
+**Column header vs Row header:** উপরের সারিতে `<th>` দিলে column header হয়। প্রতি row এর শুরুতে `<th>` দিলে row header হয়।
+
+```html
+<tr>
+  <th>Monday</th>   <!-- row header -->
+  <td>Math</td>
+</tr>
+```
+
+---
+
+### Table Padding — cell এর ভেতরের ফাঁকা জায়গা
+
+`padding` দিয়ে লেখা আর বর্ডারের মাঝে ফাঁকা রাখা হয়। এটা না দিলে লেখা বর্ডারের সাথে লেগে থাকে।
+
+```html
+<style>
+  th, td {
+    padding: 12px;  /* চারদিকে 12px ফাঁকা */
+  }
+</style>
+```
+
+আলাদা আলাদা দিকে দিতে চাইলে:
+
+```css
+td {
+  padding: 10px 20px;   /* উপর-নিচে 10px, ডান-বামে 20px */
+}
+```
+
+**Extra:** দুইটা cell এর মাঝের দূরত্ব `border-spacing` দিয়ে ঠিক হয় (শুধু `separate` mode এ কাজ করে)।
+
+```css
+table {
+  border-collapse: separate;
+  border-spacing: 10px;
+}
+```
+
+---
+
+### Text Alignment — লেখা কোথায় থাকবে
+
+```html
+<style>
+  td {
+    text-align: center;     /* left, center, right */
+    vertical-align: middle; /* top, middle, bottom */
+  }
+</style>
+```
+
+---
+
+### Table Styling — Zebra Stripes আর Hover
+
+একটা row পরপর আলাদা রং দিলে টেবিল পড়তে সুবিধা হয়। `nth-child` দিয়ে এটা করা হয়।
+
+```html
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  th {
+    background-color: #333;
+    color: white;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2; /* জোড় নম্বর row তে হালকা ধূসর */
+  }
+  tr:hover {
+    background-color: #ddd;    /* mouse নিলে রং বদলাবে */
+  }
+</style>
+```
+
+শুধু horizontal লাইন চাইলে:
+
+```css
+th, td {
+  border-bottom: 1px solid #ddd; /* শুধু নিচে দাগ */
+}
+```
+
+---
+
+### Caption — টেবিলের টাইটেল
+
+`<caption>` অবশ্যই `<table>` এর ঠিক পরে প্রথমে বসাতে হয়।
+
+```html
+<table>
+  <caption>Student List</caption>
+  <tr>
+    <th>Name</th>
+    <th>Roll</th>
+  </tr>
+</table>
+```
+
+---
+
+### Colspan আর Rowspan — cell মার্জ করা
+
+`colspan` দিয়ে একটা cell কে অনেক column জুড়ে বসানো যায়। `rowspan` দিয়ে অনেক row জুড়ে।
+
+```html
+<table border="1">
+  <tr>
+    <th colspan="2">Contact Info</th>  <!-- 2টা column জুড়ে -->
+  </tr>
+  <tr>
+    <td>Phone</td>
+    <td>01700000000</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Address</td>       <!-- 2টা row জুড়ে -->
+    <td>Dhaka</td>
+  </tr>
+  <tr>
+    <td>Bangladesh</td>
+  </tr>
+</table>
+```
+
+---
+
+### Responsive Table — ছোট স্ক্রিনের জন্য
+
+টেবিল বড় হলে মোবাইলে বাইরে চলে যায়। `div` দিয়ে wrap করে scroll দিলে সমস্যা মেটে।
+
+```html
+<div style="overflow-x: auto;">
+  <table>
+    ...
+  </table>
+</div>
+```
+
+---
+
+## HTML Lists
+
+### Unordered List — বুলেট পয়েন্টের লিস্ট
+
+`<ul>` দিয়ে লিস্ট শুরু হয়, আর প্রতিটা item `<li>` এর ভেতরে থাকে। ডিফল্টে বুলেট (●) দেখায়।
+
+```html
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+</ul>
+```
+
+---
+
+### List Style Type — বুলেটের ধরন বদলানো
+
+`list-style-type` দিয়ে বুলেটের চেহারা ঠিক করা হয়।
+
+```html
+<ul style="list-style-type: circle;">
+  <li>Circle</li>
+</ul>
+
+<ul style="list-style-type: square;">
+  <li>Square</li>
+</ul>
+
+<ul style="list-style-type: none;">
+  <li>কোনো বুলেট নেই</li>
+</ul>
+```
+
+| Value | ফলাফল |
+|-------|--------|
+| `disc` | ● (ডিফল্ট) |
+| `circle` | ○ |
+| `square` | ■ |
+| `none` | বুলেট থাকবে না |
+
+---
+
+### Ordered List — নম্বর দেওয়া লিস্ট
+
+`<ol>` দিয়ে নম্বর সহ লিস্ট হয়। যেখানে ধাপে ধাপে কিছু বোঝাতে হয়, সেখানে এটা কাজে লাগে।
+
+```html
+<ol>
+  <li>ঘুম থেকে ওঠো</li>
+  <li>ব্রাশ করো</li>
+  <li>নাস্তা করো</li>
+</ol>
+```
+
+---
+
+### Ordered List Type — নম্বরের ধরন
+
+`type` attribute দিয়ে নম্বরের স্টাইল বদলানো যায়।
+
+```html
+<ol type="1"> <li>Number (1, 2, 3)</li> </ol>
+<ol type="A"> <li>Capital letter (A, B, C)</li> </ol>
+<ol type="a"> <li>Small letter (a, b, c)</li> </ol>
+<ol type="I"> <li>Roman capital (I, II, III)</li> </ol>
+<ol type="i"> <li>Roman small (i, ii, iii)</li> </ol>
+```
+
+---
+
+### Start আর Reversed
+
+```html
+<!-- 5 থেকে শুরু হবে -->
+<ol start="5">
+  <li>Five</li>
+  <li>Six</li>
+</ol>
+
+<!-- উল্টো ক্রমে নম্বর হবে (3, 2, 1) -->
+<ol reversed>
+  <li>Third</li>
+  <li>Second</li>
+  <li>First</li>
+</ol>
+```
+
+---
+
+### Nested List — লিস্টের ভেতরে লিস্ট
+
+একটা `<li>` এর ভেতরেই আরেকটা `<ul>` বা `<ol>` বসানো যায়।
+
+```html
+<ul>
+  <li>Frontend
+    <ul>
+      <li>React</li>
+      <li>Vue</li>
+    </ul>
+  </li>
+  <li>Backend
+    <ul>
+      <li>Laravel</li>
+      <li>Node.js</li>
+    </ul>
+  </li>
+</ul>
+```
+
+**মনে রাখো:** ভেতরের লিস্ট অবশ্যই `<li>` এর ভেতরে থাকবে, `<ul>` এর সরাসরি ভেতরে না।
+
+---
+
+### Description List — নাম আর ব্যাখ্যার লিস্ট
+
+`<dl>` দিয়ে শুরু হয়। `<dt>` হলো term (নাম), আর `<dd>` হলো description (ব্যাখ্যা)। Glossary বা FAQ এর জন্য ভালো।
+
+```html
+<dl>
+  <dt>HTML</dt>
+  <dd>ওয়েব পেজের স্ট্রাকচার বানানোর ভাষা</dd>
+
+  <dt>CSS</dt>
+  <dd>ওয়েব পেজ সুন্দর করার ভাষা</dd>
+</dl>
+```
+
+---
+
+### List Style Position — বুলেট ভেতরে না বাইরে
+
+```html
+<style>
+  ul.outside { list-style-position: outside; } /* ডিফল্ট, বুলেট বাইরে */
+  ul.inside  { list-style-position: inside; }  /* বুলেট লেখার ভেতরে */
+</style>
+```
+
+---
+
+### Custom Bullet Image — নিজের ছবি দিয়ে বুলেট
+
+```css
+ul {
+  list-style-image: url('star.png');
+}
+```
+
+**Extra:** সহজ উপায় হলো `list-style` shorthand ব্যবহার করা।
+
+```css
+ul {
+  list-style: square inside;  /* type + position একসাথে */
+}
+```
+
+---
+
+### Horizontal List — লিস্ট পাশাপাশি বসানো (Navbar)
+
+Navigation menu বানানোর সময় এই টেকনিক সবচেয়ে বেশি লাগে।
+
+```html
+<style>
+  ul.nav {
+    list-style-type: none;   /* বুলেট বাদ */
+    margin: 0;
+    padding: 0;
+    display: flex;           /* পাশাপাশি বসাবে */
+    gap: 20px;
+  }
+  ul.nav a {
+    text-decoration: none;
+    color: #333;
+  }
+</style>
+
+<ul class="nav">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">About</a></li>
+  <li><a href="#">Contact</a></li>
+</ul>
+```
+
+---
+
+### Quick Summary — এক নজরে
+
+| বিষয় | Tag / Property |
+|-------|----------------|
+| টেবিল শুরু | `<table>` |
+| বর্ডার | `border: 1px solid` |
+| ডবল বর্ডার ঠিক | `border-collapse: collapse` |
+| সাইজ | `width`, `height` |
+| ভেতরের ফাঁকা | `padding` |
+| header | `<th>` |
+| Cell মার্জ | `colspan`, `rowspan` |
+| বুলেট লিস্ট | `<ul>` + `<li>` |
+| নম্বর লিস্ট | `<ol>` + `<li>` |
+| Description লিস্ট | `<dl>`, `<dt>`, `<dd>` |
+| বুলেটের ধরন | `list-style-type` |
 
 
 
