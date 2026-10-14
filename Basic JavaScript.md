@@ -1069,3 +1069,1056 @@ console.log(matrix[1][2]); // 6
 * যেকোনো নতুন method শেখার পর শুধু পড়ে বা দেখে গেলে বেশিদিন মনে থাকে না। নিজে একটা ছোট example বানিয়ে code editor এ রান করে দেখো  এতে method গুলো কীভাবে কাজ করে তা ভালোভাবে বোঝা যায় এবং মনেও থাকে বেশি দিন।
 
 ---
+
+
+
+## 8. Functions
+
+### 📖 Definition (বাংলা)
+Function হলো একটা code-এর block যেটা একবার লিখে বারবার ব্যবহার করা যায়। কাজ করানোর জন্য function-কে call করতে হয়। এতে code ছোট, পরিষ্কার আর reusable থাকে।
+
+### 📖 Definition (English)
+A function is a reusable block of code designed to perform a specific task. It runs only when it is called, and can take inputs (parameters) and give back an output (return value).
+
+### 🍵 Real-life Example
+Cha banano-r kotha vabo। Cha banano-r recipe tumi ekbar likhe rakhlay: pani foto → cha-pata dao → chini dao → dud dao → cup-e dhalo। Ekhon jotobar cha khete icche korbe, recipe ta abar notun kore likhte hobe na, shudhu bolbe "cha banao"।
+
+- Recipe ta = **function** (ekbar likhi, bar bar use kori)
+- "Cha banao" bola = **function call**
+- Chini koto chamoch, dud koto = **parameter / argument** (input)
+- Cup-e ready cha = **return value** (output)
+
+```js
+function makeTea(sugar, milk) {       // recipe likhlam
+  return "Tea with " + sugar + " sugar and " + milk + " milk";
+}
+console.log(makeTea(2, "full"));      // Tea with 2 sugar and full milk
+console.log(makeTea(0, "no"));        // same recipe, notun input
+```
+
+### 📋 Function-er Types (List)
+
+| # | Type | Ek line-e | Section |
+|---|---|---|---|
+| 1 | Function Declaration | `function` keyword + naam, hoisted hoy | 8.1 |
+| 2 | Function Expression | function ke variable-e rakha hoy | 8.2 |
+| 3 | Arrow Function | short syntax `=>`, ES6 | 8.3 |
+| 4 | Anonymous Function | naam nai, shudhu value hishebe use hoy | 8.11 |
+| 5 | Named Function Expression | expression-er vitore naam dewa | 8.11 |
+| 6 | IIFE | define korar shathe shathe run | 8.10 |
+| 7 | Callback Function | onno function-er argument hishebe pathano | 8.9 |
+| 8 | Higher-Order Function | function nei ba function ferot dey | 8.12 |
+| 9 | Recursive Function | nijeke nijei call kore | 8.13 |
+| 10 | Constructor Function | `new` diye object banay | 8.14 |
+| 11 | Method | object-er vitorer function | 8.15 |
+| 12 | Async Function | `async/await` diye time-newa kaj handle kore | 8.16 |
+| 13 | Generator Function | `function*` + `yield`, ek ek kore value dey | 8.17 |
+
+> Parameter, default parameter, rest parameter, return, scope — eigulo function-er **type** na, function-er **feature**; 8.4 theke 8.8 e ache।
+
+---
+
+### 8.1 Function Declaration
+
+```js
+// function declaration: function keyword + name + () + { }
+function greet(name) {
+  // name -> parameter: function-e ja input dewa hoy tar naam
+  return "Hello, " + name;   // return: function theke value ferot pathay
+}
+
+// function call: argument pass kore function run kora
+console.log(greet("Arik"));  // Hello, Arik
+```
+
+**Part-wise explanation:**
+
+- `function greet(name)` → function-er naam `greet`, `name` holo parameter।
+- `return` → function-er result ferot dey ar function ekhanei shesh hoye jay। return er por kono code run hoy na।
+- `greet("Arik")` → function call; `"Arik"` holo argument (parameter-er asol value)।
+
+> 💡 Function declaration **hoisted** hoy — mane function define korar age thekei call kora jay।
+
+```js
+sayHi();                 // kaj korbe, karon hoisting
+function sayHi() {
+  console.log("Hi!");
+}
+```
+
+---
+
+### 8.2 Function Expression
+
+```js
+// function ke variable-er moddhe rakha hoy
+const add = function (a, b) {
+  return a + b;
+};
+
+console.log(add(2, 3));  // 5
+```
+
+**Part-wise explanation:**
+
+- Function-ta ekta variable-e store hoy, tai `add(...)` diye call kora hoy।
+- Declaration-er moto **hoisted hoy na** — define korar age call korle error dibe।
+
+---
+
+### 8.3 Arrow Function (ES6)
+
+```js
+// shortcut syntax: function keyword nai, => use hoy
+const multiply = (a, b) => {
+  return a * b;
+};
+
+// body te shudhu ekta expression thakle { } ar return dorkar nai
+const square = (n) => n * n;
+
+// ekta parameter hole () o chhara jay
+const double = n => n * 2;
+
+console.log(multiply(2, 3)); // 6
+console.log(square(4));      // 16
+console.log(double(5));      // 10
+```
+
+**Part-wise explanation:**
+
+- `(a, b) => ...` → parameter list, tarpor arrow `=>`, tarpor body।
+- Single line body hole `return` automatic hoye jay (implicit return)।
+- Arrow function-er nijer `this` thake na — eta bairer scope-er `this` use kore।
+
+---
+
+### 8.4 Parameters ar Arguments
+
+```js
+function introduce(name, age) {
+  console.log(name + " is " + age + " years old");
+}
+
+introduce("Arik", 24);   // Arik is 24 years old
+introduce("Arik");       // Arik is undefined years old  (age dewa hoy ni)
+```
+
+**Part-wise explanation:**
+
+- Parameter = function define korar somoy naam; Argument = call korar somoy asol value।
+- Argument kom dile baki parameter `undefined` hoy। Beshi dile extra gulo ignore hoy (kintu `arguments` object-e thake)।
+
+---
+
+### 8.5 Default Parameters
+
+```js
+function greet(name = "Guest") {
+  // name na dile "Guest" use hobe
+  console.log("Hello, " + name);
+}
+
+greet("Arik");  // Hello, Arik
+greet();        // Hello, Guest
+```
+
+---
+
+### 8.6 Rest Parameters
+
+```js
+// ...numbers -> baki shob argument ekta array te joma kore
+function sum(...numbers) {
+  let total = 0;
+  for (let n of numbers) {
+    total += n;
+  }
+  return total;
+}
+
+console.log(sum(1, 2, 3, 4)); // 10
+```
+
+**Part-wise explanation:**
+
+- `...numbers` → joto khushi argument nite pare, shob ekta array-te chole ashe।
+- Rest parameter shobsomoy **shesh parameter** hote hobe।
+
+---
+
+### 8.7 Return Value
+
+```js
+function checkAge(age) {
+  if (age >= 18) {
+    return "Adult";
+  }
+  return "Minor";     // upore return hole ekhane ar ashbe na
+}
+
+console.log(checkAge(20)); // Adult
+
+function noReturn() {
+  let x = 5;
+}
+console.log(noReturn());   // undefined (return na thakle undefined ferot dey)
+```
+
+---
+
+### 8.8 Scope (Local vs Global)
+
+```js
+let globalVar = "I am global";   // global scope: shob jaygay use kora jay
+
+function test() {
+  let localVar = "I am local";   // local scope: shudhu function-er vitore
+  console.log(globalVar);        // kaj korbe
+  console.log(localVar);         // kaj korbe
+}
+
+test();
+console.log(localVar);           // ❌ Error: localVar is not defined
+```
+
+**Part-wise explanation:**
+
+- Function-er vitore declare kora variable bairer theke dekha jay na।
+- Vitor theke bairer (global) variable dekha jay।
+- `let` ar `const` **block scope** ({ } er moddhe), `var` **function scope**।
+
+---
+
+### 8.9 Callback Function
+
+```js
+// ekta function ke arekta function-er argument hishebe pathano
+function processUser(name, callback) {
+  console.log("Processing " + name);
+  callback();                    // pore ei function ta call hobe
+}
+
+function done() {
+  console.log("Done!");
+}
+
+processUser("Arik", done);
+// Processing Arik
+// Done!
+```
+
+**Part-wise explanation:**
+
+- JavaScript-e function ekta value, tai arekta function-e argument hishebe dewa jay।
+- `done` likhlam `()` chhara — karon amra function call korchi na, function ta pass korchi। Call korbe `processUser` nijei।
+- Event handling, `setTimeout`, array methods (`map`, `filter`) shob jaygay callback use hoy।
+
+```js
+setTimeout(() => {
+  console.log("2 second por run holo");
+}, 2000);
+```
+
+---
+
+### 8.10 IIFE (Immediately Invoked Function Expression)
+
+```js
+(function () {
+  console.log("Ami shathe shathe run hoyechi!");
+})();
+```
+
+**Part-wise explanation:**
+
+- Define korar shathe shathei run hoy, ar kokhono call korte hoy na।
+- Variable gulo private thake, global scope-e leak hoy na।
+
+---
+
+### 8.11 Anonymous Function ar Named Function Expression
+
+```js
+// Anonymous: function-er kono naam nai
+setTimeout(function () {
+  console.log("Naam chhara function");
+}, 1000);
+
+const hello = function () {      // variable-e rakha, kintu function-er nijer naam nai
+  console.log("Hello");
+};
+
+// Named Function Expression: expression-er vitore naam ache
+const factorial = function fact(n) {
+  return n <= 1 ? 1 : n * fact(n - 1);   // vitor theke 'fact' naam diye nijeke call
+};
+console.log(factorial(5));  // 120
+```
+
+**Part-wise explanation:**
+
+- **Anonymous function** ekdom shurute naam chhara thake। Callback, event handler, `setTimeout`-e beshi use hoy।
+- **Named function expression**-er naam shudhu **function-er vitore** dekha jay, bairer theke na।
+- Naam thakle error hole console-e function-er naam dekha jay, tai debug kora shohoj hoy।
+
+---
+
+### 8.12 Higher-Order Function
+
+```js
+// 1. Je function onno function ke argument hishebe ney
+const numbers = [1, 2, 3, 4, 5];
+
+const doubled = numbers.map((n) => n * 2);          // [2, 4, 6, 8, 10]
+const evens = numbers.filter((n) => n % 2 === 0);   // [2, 4]
+const total = numbers.reduce((sum, n) => sum + n, 0); // 15
+
+// 2. Je function onno function ke ferot dey
+function multiplier(x) {
+  return function (y) {
+    return x * y;
+  };
+}
+
+const triple = multiplier(3);   // triple ekhon ekta function
+console.log(triple(5));         // 15
+```
+
+**Part-wise explanation:**
+
+- Je function **function nei** ba **function ferot dey**, take Higher-Order Function bole।
+- `map`, `filter`, `reduce`, `forEach` shob built-in higher-order function।
+- `multiplier(3)` ekta notun function ferot dey, jeta pore `y` pele `3 * y` korbe।
+
+---
+
+### 8.13 Recursive Function
+
+```js
+function countdown(n) {
+  if (n === 0) {              // base case: ekhane thamte hobe
+    console.log("Go!");
+    return;
+  }
+  console.log(n);
+  countdown(n - 1);           // function nijeke abar call korche
+}
+
+countdown(3);  // 3, 2, 1, Go!
+```
+
+**Part-wise explanation:**
+
+- Je function **nijeke nijei call kore**, take recursive function bole।
+- **Base case** (kokhon thambe) na thakle infinite call hoy, ar `Maximum call stack size exceeded` error ashe।
+- Loop diye jeta kora jay, recursion diyeo kora jay; kintu tree/folder-er moto nested jinish-e recursion beshi shohoj।
+
+---
+
+### 8.14 Constructor Function
+
+```js
+// naam-er prothom okkhor boro hat dewa hoy (convention)
+function Person(name, age) {
+  this.name = name;     // this -> je notun object ta banche
+  this.age = age;
+  this.greet = function () {
+    console.log("Hi, I am " + this.name);
+  };
+}
+
+const p1 = new Person("Arik", 24);   // new keyword lagbei
+const p2 = new Person("Rahim", 30);
+
+p1.greet();  // Hi, I am Arik
+p2.greet();  // Hi, I am Rahim
+```
+
+**Part-wise explanation:**
+
+- Ekoi blueprint theke onek gulo object banate constructor function use hoy।
+- `new` na likhle `this` object-e na, shobar upore ba `undefined` hoye jay, tai `new` bhule jeyo na।
+- Modern JavaScript-e eta-r jaygay `class` use kora hoy, kintu vitore ei concept-i kaj kore।
+
+---
+
+### 8.15 Method (Object-er vitorer Function)
+
+```js
+const user = {
+  name: "Arik",
+  greet: function () {                // method
+    console.log("Hello, " + this.name);
+  },
+  sayBye() {                          // short syntax
+    console.log("Bye, " + this.name);
+  },
+};
+
+user.greet();   // Hello, Arik
+user.sayBye();  // Bye, Arik
+```
+
+**Part-wise explanation:**
+
+- Object-er property-r value jodi function hoy, take **method** bole। Array-r `push()`, string-er `toUpperCase()` o method।
+- Method-er vitore `this` mane **je object diye method ta call kora hoyeche** (ekhane `user`)।
+- Object-er method-e arrow function dio na, karon arrow function-e `this` object-ke point kore na।
+
+---
+
+### 8.16 Async Function
+
+```js
+async function getUser() {
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/users/1");
+    const data = await res.json();      // await: result ashar jonno opekkha kore
+    console.log(data.name);
+  } catch (err) {
+    console.log("Error:", err);
+  }
+}
+
+getUser();
+console.log("Ami age print hobo");     // getUser opekkha korar somoy baki code cholte thake
+```
+
+**Part-wise explanation:**
+
+- `async` function shobsomoy ekta **Promise** ferot dey।
+- `await` shudhu `async` function-er vitore use kora jay; eta result na ashe porjonto oi function-ke opekkha koray, kintu pura page-ke atkay na।
+- Server theke data ana, file read kora-r moto **somoy-newa** kaje use hoy। Error dhorar jonno `try...catch` lagao।
+- Arrow-o async hote pare: `const fn = async () => { ... }`।
+
+---
+
+### 8.17 Generator Function
+
+```js
+function* numberGenerator() {
+  yield 1;      // ekhane pause kore 1 dey
+  yield 2;
+  yield 3;
+}
+
+const gen = numberGenerator();
+console.log(gen.next());  // { value: 1, done: false }
+console.log(gen.next());  // { value: 2, done: false }
+console.log(gen.next());  // { value: 3, done: false }
+console.log(gen.next());  // { value: undefined, done: true }
+```
+
+**Part-wise explanation:**
+
+- `function*` (star shoho) likhle generator hoy। `yield` e function pause hoy ar value dey।
+- `next()` call korle porer `yield` porjonto cholte thake।
+- Beshi use hoy na, kintu lomba/infinite list, step-by-step kaj-e kaje lage। Shurute eta bujhte na parle skip kore porer topic-e jete paro।
+
+---
+
+### ⚠️ Common Mistakes
+
+- Function call korar somoy `()` dite bhule jawa — `greet` likhle function run hoy na, `greet()` likhte hobe।
+- `return` er pore code likhe fela — oi code kokhono run hobe na।
+- Function-er vitorer variable bairer theke use korte jawa — scope error dey।
+- Function expression-ke define korar age call kora — hoisting hoy na, error dey।
+- Callback pass korar somoy `done()` likhe fela — eta shathe shathe call kore dey, `done` likhte hobe।
+- Arrow function-e `{ }` dile `return` na likhle `undefined` ferot ashe।
+
+### 💡 Tip
+Ekta function-e ekta kaj-i rakho — chhoto, clear naam dao (`getUser`, `calculateTotal`)। Simple kaj hole arrow function, hoisting lagle declaration, ar callback-e arrow function use koro। Default parameter use korle `undefined` error onek kome jay।
+
+---
+---
+
+## 9. DOM (Document Object Model)
+
+### 📖 Definition (বাংলা)
+DOM-এর full form Document Object Model। আমরা যখন একটা HTML file লিখি, browser সেটা সরাসরি screen-এ দেখায় না। আগে browser পুরো HTML পড়ে একটা tree-এর মতো structure বানায়, যেখানে প্রতিটা tag (h1, p, button, img...) একটা করে object (node) হয়ে যায়। এই tree-টাকেই DOM বলে।
+
+JavaScript এই object গুলোর সাথে কথা বলতে পারে। তাই JS দিয়ে page-এর যেকোনো অংশ পড়া (read), বদলানো (change), নতুন কিছু যোগ করা (add) বা মুছে ফেলা (remove) যায় — page reload ছাড়াই।
+
+সহজ কথায়: **HTML = page-এর নকশা, DOM = সেই নকশা থেকে browser-এর বানানো জীবন্ত (live) রূপ, আর JavaScript = সেই রূপ বদলানোর রিমোট কন্ট্রোল।**
+
+### 📖 Definition (English)
+The DOM (Document Object Model) is a programming interface that the browser builds from your HTML. It represents the page as a tree of objects called nodes, where every tag, attribute, and piece of text becomes a node. JavaScript can read and change these nodes to update the content, structure, and style of the page instantly, without reloading it.
+
+```
+document
+ └── html
+      ├── head
+      │    └── title
+      └── body
+           ├── h1
+           └── p
+```
+
+---
+
+### 🏠 Real-life Story — Bari, Noksha ar Electrician
+
+Dhoro, Arik ekta bari-r **noksha (blueprint)** aanklo: "ekta bari, tar vitore 2ta room, proti room-e ekta kore batti।"
+
+- **Noksha = HTML file।** Eta shudhu kagoje lekha plan।
+- Contractor (**browser**) noksha dekhe **asol bari** baniye felo। Eta holo **DOM।** Ekhon room, deyal, batti shob asol jinish, ar tader moddhe sompork ache: bari → room → batti। Thik family tree-r moto (parent, child, sibling)।
+- Ekhon batti jalate ba deyal-e rong korte hole noksha-r kagoje kichu likhle kichu hobe na, **bari-te giye kaj korte hobe।** Ei "bari-te giye kaj kora" holo **JavaScript।**
+
+| Bari-te ja kora hoy | DOM-e JS-er kaj |
+|---|---|
+| "2 number room-er batti ta khuje ber kora" | `getElementById` / `querySelector` |
+| "Batti-r rong bodlano, nameplate bodlano" | `style`, `textContent`, `classList` |
+| "Notun room baniye bari-r sathe jora lagano" | `createElement` + `appendChild` |
+| "Room ta bhenge fela" | `remove()` |
+
+**Ekta important kotha:** JS diye change korle noksha (HTML file) ager moto-i thake, shudhu asol bari (page) bodlay। Tai page **reload** korle browser abar noksha theke notun bari baniye felbe, ar tomar JS-er kora change gulo **hariye jabe।**
+
+**Web-er real example:** Facebook-e Like dile count 1 bere jay, kintu page reload hoy na। Ota DOM change: JS ei like count-er text ta khuje ber kore bodle dey।
+
+```js
+// noksha (HTML): <button id="like">Like</button> <span id="count">0</span>
+const count = document.querySelector("#count");   // bari-te batti khuje paoa
+count.textContent = 1;                            // batti-r rong bodlano (text change)
+```
+
+---
+
+### 9.1 Element Select kora
+
+```html
+<h1 id="title">Hello</h1>
+<p class="text">First</p>
+<p class="text">Second</p>
+```
+
+```js
+// id diye ekta element
+const title = document.getElementById("title");
+
+// CSS selector diye prothom match howa element
+const firstText = document.querySelector(".text");
+
+// CSS selector diye shob match howa element (NodeList)
+const allTexts = document.querySelectorAll(".text");
+
+// class / tag name diye (HTMLCollection)
+const byClass = document.getElementsByClassName("text");
+const byTag = document.getElementsByTagName("p");
+
+console.log(title, firstText, allTexts.length);
+```
+
+**Part-wise explanation:**
+
+- `getElementById` → id diye ekta element dey; na pele `null`।
+- `querySelector` → CSS-er moto selector (`#id`, `.class`, `tag`) use kore **prothom** ta dey।
+- `querySelectorAll` → **shob** match howa element dey; `forEach` diye loop kora jay।
+- Modern code-e shobcheye beshi `querySelector` / `querySelectorAll` use hoy।
+
+---
+
+### 9.2 Text ar HTML Change kora
+
+```js
+const title = document.querySelector("#title");
+
+title.textContent = "New Title";            // shudhu text, safe
+title.innerHTML = "<span>Bold</span> Text"; // HTML shoho
+title.innerText = "Visible text";           // CSS-e visible text
+```
+
+**Part-wise explanation:**
+
+- `textContent` → plain text set kore; HTML tag hole text hishebe dekhay, tai safe।
+- `innerHTML` → HTML parse kore। **User-er dewa input kokhono innerHTML-e dio na** (XSS risk)।
+- `innerText` → shudhu screen-e visible text dhore, CSS (`display: none`) mane।
+
+---
+
+### 9.3 Style Change kora
+
+```js
+const box = document.querySelector(".box");
+
+box.style.color = "red";
+box.style.backgroundColor = "yellow";   // background-color -> camelCase
+box.style.fontSize = "20px";
+```
+
+**Part-wise explanation:**
+
+- CSS property-te `-` thake, JS-e seta camelCase hoy: `background-color` → `backgroundColor`।
+- Value shobsomoy string hoy, unit shoho (`"20px"`)।
+- `style` shudhu **inline style** change kore।
+
+---
+
+### 9.4 classList
+
+```js
+const box = document.querySelector(".box");
+
+box.classList.add("active");        // class add
+box.classList.remove("active");     // class remove
+box.classList.toggle("active");     // thakle remove, na thakle add
+console.log(box.classList.contains("active")); // true / false
+```
+
+**Part-wise explanation:**
+
+- Beshi style change korte hole CSS-e class banay, JS diye shudhu class on/off kora best practice।
+- `toggle` dark mode, menu open/close-er moto jaygay khub kaje lage।
+
+---
+
+### 9.4.1 Attribute
+
+```js
+const link = document.querySelector("a");
+
+console.log(link.getAttribute("href"));
+link.setAttribute("href", "https://example.com");
+link.removeAttribute("target");
+console.log(link.hasAttribute("href")); // true
+
+const img = document.querySelector("img");
+img.src = "photo.jpg";   // direct property diyeo kora jay
+img.alt = "My photo";
+```
+
+---
+
+### 9.5 Notun Element Create, Add ar Remove
+
+```js
+// 1. element banano
+const li = document.createElement("li");
+
+// 2. text / content dewa
+li.textContent = "New item";
+li.classList.add("item");
+
+// 3. page-e add kora
+const ul = document.querySelector("ul");
+ul.appendChild(li);        // shesh e
+ul.prepend(li);            // shurute (li ta move hobe, copy na)
+ul.append("text", li);     // ekshathe onek ta (text-o dewa jay)
+
+// 4. remove kora
+li.remove();               // element nijei nijeke remove kore
+ul.removeChild(li);        // parent theke child remove
+
+// 5. copy kora
+const copy = li.cloneNode(true);  // true = vitorer shob shoho
+```
+
+**Part-wise explanation:**
+
+- `createElement` shudhu memory-te element banay, page-e add na korle dekha jabe na।
+- `appendChild` / `append` / `prepend` diye page-e boshano hoy।
+- Ekta element ekshathe duita jaygay thakte pare na; ager jayga theke move hoy। Duplicate lagle `cloneNode(true)` use koro।
+
+---
+
+### 9.6 insertAdjacentHTML
+
+```js
+const list = document.querySelector("ul");
+
+list.insertAdjacentHTML("beforeend", "<li>Item 4</li>");
+// 'beforebegin' -> element-er age (bairey)
+// 'afterbegin'  -> element-er vitore, shurute
+// 'beforeend'   -> element-er vitore, shesh e
+// 'afterend'    -> element-er pore (bairey)
+```
+
+---
+
+### 9.7 DOM Traversing (Parent, Child, Sibling)
+
+```js
+const ul = document.querySelector("ul");
+
+ul.parentElement;          // parent
+ul.children;               // shob child element (HTMLCollection)
+ul.firstElementChild;      // prothom child
+ul.lastElementChild;       // shesh child
+
+const li = document.querySelector("li");
+li.nextElementSibling;     // porer bhai
+li.previousElementSibling; // ager bhai
+
+li.closest("ul");          // upore-r dike shobcheye kachher match howa element
+```
+
+**Part-wise explanation:**
+
+- `...Element...` wala property gulo shudhu element dey, text/whitespace node dey na — tai eta use kora bhalo।
+- `closest()` event delegation-e khub kaje lage।
+
+---
+
+### 9.8 Input-er Value Neowa
+
+```js
+const input = document.querySelector("#name");
+
+console.log(input.value);   // user ja likhechhe (shobsomoy string)
+input.value = "";           // input khali kora
+
+const checkbox = document.querySelector("#agree");
+console.log(checkbox.checked); // true / false
+```
+
+---
+
+### 9.9 Practical Example
+
+```html
+<h1 id="counter">0</h1>
+<button id="btn">+1</button>
+```
+
+```js
+const counter = document.querySelector("#counter");
+const btn = document.querySelector("#btn");
+
+let count = 0;
+
+btn.addEventListener("click", () => {
+  count++;                          // count barao
+  counter.textContent = count;      // page-e update koro
+});
+```
+
+---
+
+### ⚠️ Common Mistakes
+
+- `<script>` tag `<body>`-er shurute dile element pawa jay na (`null` ashe) — script `</body>`-er thik age dao, ba `defer` use koro।
+- `querySelector`-e `.` ba `#` dite bhule jawa — `querySelector("title")` tag khoje, id na।
+- `querySelectorAll` er result e direct style dewa — age loop korte hobe: `all.forEach(el => ...)`।
+- `innerHTML`-e user input boshano — security risk (XSS)।
+- `input.value` ke number vabe — eta string, `Number(input.value)` kore nao।
+- `background-color` likhe style dewa — JS-e `backgroundColor` hobe।
+- `getElementById("#title")` — eikhane `#` dite hoy na।
+- `null`-er upor property access kora — element nai hole `Cannot read properties of null` error ashe।
+
+### 💡 Tip
+Prothome `querySelector` / `querySelectorAll` shikho, shob jaygay kaje lagbe। Style change-er jonno `classList` use koro, inline style na। Text-er jonno `textContent`, shudhu trusted HTML-er jonno `innerHTML`। Browser-er DevTools (F12 → Elements tab) e DOM tree live dekha jay, practice-er jonno khub helpful।
+
+---
+---
+
+## 10. Events
+
+### 📖 Definition (বাংলা)
+Event মানে ঘটনা। Browser-এর page-এ প্রতি মুহূর্তে অনেক কিছু ঘটে — user button-এ click করে, keyboard-এ কিছু type করে, mouse নাড়ায়, form submit করে, page scroll করে, এমনকি page load হওয়াও একটা ঘটনা। এই ঘটনাগুলোকেই event বলে।
+
+Browser এই ঘটনাগুলো নিজে থেকেই টের পায়। কিন্তু ঘটনা ঘটলে **কী করতে হবে** সেটা আমরা JavaScript দিয়ে ঠিক করে দিই। এটাকে বলে event handling।
+
+Event handling-এর ৩টা অংশ:
+1. **Event** — যা ঘটলো (যেমন click)
+2. **Event Listener** — যে ঘটনার জন্য কান পেতে অপেক্ষা করে (`addEventListener`)
+3. **Event Handler** — ঘটনা ঘটলে যে function চলে
+
+### 📖 Definition (English)
+An event is something that happens in the browser, such as a click, a key press, a form submission, or a page load. The browser detects these automatically, and we use JavaScript to attach an event listener to an element so that a handler function runs whenever that event occurs. This is what makes a web page interactive.
+
+---
+
+### 🔔 Real-life Story — Doorbell
+
+Tumi ghore boshe ache, ar bairer dorjay ekta **doorbell** ache।
+
+- Keu bell chaple = **Event** (jemon `click`)
+- Tumi kan pete ache, bell bajle shunbe = **Event Listener** (`addEventListener`)। Bell na baja porjonto tumi kichui korcho na, shudhu "opekkha" korcho।
+- Bell shune uthe giye dorja khulle = **Event Handler** (function)। Bell jotobar bajbe, totobar ei kaj hobe।
+- Keu ashche ta dekhe kon manush (bondhu na delivery man) bujhle = **Event Object** (`event.target`, `event.key`...), mane ghotonar details।
+- Alada bell alada kaj: dorjar bell (click), phone-er ring (aro ekta event) — kon ghotona-y ki korbe ta tumi alada kore thik koro।
+
+| Doorbell story | JavaScript |
+|---|---|
+| Doorbell | Button / element |
+| Bell chapa | `click` event |
+| Kan pete thaka | `addEventListener` |
+| Dorja khola | handler function |
+| Ke eshechhe tar info | event object (`e`) |
+
+**Web-er real example:** Like button-e click korle count barhe, menu icon-e click korle menu khole, form-e Enter chaple data jay — shob jaygay "keu kichu korlo, tai kichu hoilo", mane event + handler।
+
+```js
+const bell = document.querySelector("#doorbell");        // doorbell (button)
+
+bell.addEventListener("click", (e) => {                  // kan pete thaka: click shunbo
+  console.log("Ding dong! Dorja kholo 🚪");              // bell bajle ei kaj
+  console.log("Ke click korlo:", e.target);              // ghotonar details
+});
+```
+
+---
+
+### 10.1 addEventListener
+
+```js
+const btn = document.querySelector("#btn");
+
+// element.addEventListener("event-naam", handlerFunction)
+btn.addEventListener("click", function () {
+  console.log("Button clicked!");
+});
+
+// arrow function diyeo kora jay
+btn.addEventListener("click", () => {
+  console.log("Clicked again!");
+});
+```
+
+**Part-wise explanation:**
+
+- 1st argument → event-er naam (string), `"on"` chhara (`"click"`, `"onclick"` na)।
+- 2nd argument → handler function; event hole ei function run hoy।
+- Ekta element-e ekoi event-e **onek gulo** listener lagano jay।
+
+> Ager style `btn.onclick = function() {...}` — eta e ekta-i handler thake, porer ta ager tare replace kore dey। Tai `addEventListener` better।
+
+---
+
+### 10.2 Common Events
+
+| Event | Kokhon hoy |
+|---|---|
+| `click` | element-e click korle |
+| `dblclick` | double click korle |
+| `mouseover` / `mouseout` | mouse upore ashle / chole gele |
+| `keydown` / `keyup` | key chaple / chhare dile |
+| `input` | input-e value change hole (proti character e) |
+| `change` | value change hoye focus chole gele (select, checkbox) |
+| `submit` | form submit hole |
+| `focus` / `blur` | input-e focus hole / focus chole gele |
+| `scroll` | scroll korle |
+| `resize` | window size change hole |
+| `DOMContentLoaded` | HTML load shesh hole |
+| `load` | page + image shob load shesh hole |
+
+```js
+const input = document.querySelector("#name");
+
+input.addEventListener("input", () => {
+  console.log("Typing:", input.value);
+});
+
+document.addEventListener("keydown", (e) => {
+  console.log("Key pressed:", e.key);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM ready!");
+});
+```
+
+---
+
+### 10.3 Event Object
+
+```js
+btn.addEventListener("click", (event) => {
+  // event -> browser automatic pathay, event-er shob information thake
+  console.log(event.type);      // "click"
+  console.log(event.target);    // je element-e click hoyeche
+  console.log(event.currentTarget); // je element-e listener lagano
+  console.log(event.clientX, event.clientY); // mouse-er position
+});
+
+input.addEventListener("keydown", (e) => {
+  console.log(e.key);    // "a", "Enter", "Escape"
+  console.log(e.code);   // "KeyA", "Enter"
+  if (e.key === "Enter") {
+    console.log("Enter chapa hoyeche");
+  }
+});
+```
+
+**Part-wise explanation:**
+
+- Handler function-er prothom parameter-i event object (naam `e`, `event`, `evt` jekono hote pare)।
+- `event.target` → je element theke event shuru hoyeche।
+- `event.currentTarget` → je element-e listener lagano ache।
+
+---
+
+### 10.4 preventDefault()
+
+```js
+const form = document.querySelector("form");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();     // browser-er default kaj (page reload) bondho kore
+  console.log("Form submit hoyeche, kintu page reload hoy ni");
+});
+
+const link = document.querySelector("a");
+link.addEventListener("click", (e) => {
+  e.preventDefault();     // link-e gele na
+});
+```
+
+**Part-wise explanation:**
+
+- Form submit korle browser by default page reload kore, link-e click korle onno page-e jay। `preventDefault()` eta thamay।
+- JS diye form validate ba data pathate hole eta lagbei।
+
+---
+
+### 10.5 Event Bubbling ar Capturing
+
+```html
+<div id="parent">
+  <button id="child">Click</button>
+</div>
+```
+
+```js
+document.querySelector("#parent").addEventListener("click", () => {
+  console.log("Parent clicked");
+});
+
+document.querySelector("#child").addEventListener("click", () => {
+  console.log("Child clicked");
+});
+
+// button-e click korle output:
+// Child clicked
+// Parent clicked    <- event upore (parent-er dike) uthe jay: eta bubbling
+```
+
+**Part-wise explanation:**
+
+- **Bubbling** (default): event prothome je element-e hoyeche tate run hoy, tarpor ek ek kore parent-er dike uthe jay।
+- **Capturing**: ulta, upor theke niche. Use korte hole 3rd argument `true` dite hoy: `addEventListener("click", fn, true)`।
+- `e.stopPropagation()` diye event-er upore uthha bondho kora jay।
+
+```js
+document.querySelector("#child").addEventListener("click", (e) => {
+  e.stopPropagation();   // parent-er handler ar run hobe na
+  console.log("Child clicked");
+});
+```
+
+---
+
+### 10.6 Event Delegation
+
+```html
+<ul id="list">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+```
+
+```js
+const list = document.querySelector("#list");
+
+// proti li-te alada listener na diye parent-e ekta-i listener
+list.addEventListener("click", (e) => {
+  if (e.target.tagName === "LI") {
+    console.log("Clicked:", e.target.textContent);
+    e.target.classList.toggle("done");
+  }
+});
+
+// pore notun li add korleo kaj korbe
+const newLi = document.createElement("li");
+newLi.textContent = "Item 4";
+list.appendChild(newLi);
+```
+
+**Part-wise explanation:**
+
+- Bubbling-er subidha niye parent-e ekta listener lagiye `event.target` diye bujha jay kon child-e click hoyeche।
+- Fayda: kom memory, ar **pore add kora element-eo** automatic kaj kore (todo list-e khub lage)।
+- Child-er vitore aro element thakle `e.target.closest("li")` use koro।
+
+---
+
+### 10.7 removeEventListener
+
+```js
+function handleClick() {
+  console.log("Clicked");
+}
+
+btn.addEventListener("click", handleClick);
+btn.removeEventListener("click", handleClick);  // same function reference lagbe
+```
+
+**Part-wise explanation:**
+
+- Remove korte hole **same function** pass korte hobe। Anonymous / arrow function diye add korle remove kora jay na, tai naam dewa function use koro।
+
+---
+
+### 10.8 Listener Options
+
+```js
+btn.addEventListener("click", () => {
+  console.log("Shudhu ekbar run hobe");
+}, { once: true });   // ekbar run hoye nijei remove hoye jay
+```
+
+---
+
+### 10.9 Practical Example — Todo List
+
+```html
+<form id="todo-form">
+  <input type="text" id="todo-input" placeholder="Add a task" />
+  <button type="submit">Add</button>
+</form>
+<ul id="todo-list"></ul>
+```
+
+```js
+const form = document.querySelector("#todo-form");
+const input = document.querySelector("#todo-input");
+const list = document.querySelector("#todo-list");
+
+// 1. form submit hole notun task add
+form.addEventListener("submit", (e) => {
+  e.preventDefault();                  // page reload bondho
+
+  const text = input.value.trim();     // age-pore space fele dao
+  if (text === "") return;             // khali hole kichu korbe na
+
+  const li = document.createElement("li");
+  li.textContent = text;
+  list.appendChild(li);
+
+  input.value = "";                    // input khali koro
+});
+
+// 2. event delegation: li-te click korle done / undone
+list.addEventListener("click", (e) => {
+  if (e.target.tagName === "LI") {
+    e.target.classList.toggle("done");
+  }
+});
+```
+
+---
+
+### ⚠️ Common Mistakes
+
+- `addEventListener("onclick", ...)` likhe fela — `"click"` hobe, `"on"` chhara।
+- Handler-e `fn()` likhe fela — eta shathe shathe call kore dey; `fn` likhte hobe (`btn.addEventListener("click", fn)`)।
+- Form-e `preventDefault()` na dewa — page reload hoye data hariye jay।
+- Anonymous function diye listener add kore pore `removeEventListener` korte chawa — kaj korbe na।
+- `querySelectorAll` er result-e direct `addEventListener` dewa — loop korte hobe।
+- Arrow function-e `this` use kora — arrow function-e `this` element hoy na; `e.currentTarget` use koro।
+- `e.stopPropagation()` jaygay-onujayi na bujhe use kora — onno listener bondho hoye jete pare।
+- `input` ar `change` event-er difference na bojha — `input` proti character-e, `change` focus hariye gele।
+
+### 💡 Tip
+Notun listener lagate hole shobsomoy `addEventListener` use koro। Form-er jonno `submit` event-e `preventDefault()` mone rakho। List-er moto jaygay (jekhane element pore add hoy) **event delegation** use koro। Kono event-er details bujhte `console.log(e)` kore dekho, browser-er console-e shob property dekha jabe।
