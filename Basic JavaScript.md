@@ -25,7 +25,7 @@ JavaScript stands for **JavaScript** (yes, just that — it's not related to Jav
 - Fetch data from servers and update the page dynamically
 - Build entire web applications (with frameworks like React, Vue, etc.)
 
-Without JavaScript, websites would just sit there — looking nice, but doing nothing. With JavaScript, a website can think, react, and interact.
+Without JavaScript websites would just sit there looking nice but doing nothing. With JavaScript, a website can think, react, and interact.
 
 So, HTML builds the structure, CSS makes it beautiful, and **JavaScript brings it to life.**
 
