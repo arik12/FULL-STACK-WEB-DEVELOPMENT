@@ -1,6 +1,6 @@
 <div align="center">
 
-# JavaScript
+# Introduction to JavaScript
 
 </div>
 
