@@ -50,7 +50,6 @@ Over time, JavaScript evolved through many versions:
 Today, JavaScript is one of the **most popular programming languages in the world**. It runs not just in browsers, but also on servers (Node.js), mobile apps, desktop apps, and even IoT devices.
 
 ---
----
 
 ## What is JavaScript?
 
