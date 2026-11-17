@@ -1188,18 +1188,7 @@ Inline style  >  #id  >  .class  >  tag
 8. **Reusable class বানাও।** `.btn`, `.card`, `.container` এর মতো class একবার বানিয়ে সব পেজে ব্যবহার করো।
 ---
  
-## 7. Quick Summary
- 
-| মনে রাখো | |
-|----------|---|
-| **Class** | `.name`, অনেক element এ ব্যবহার করা যায়, Styling এর জন্য সেরা |
-| **ID** | `#name`, পেজে মাত্র ১টা, JS / jump link / label এর জন্য |
-| **একাধিক class** | `class="btn btn-green"` |
-| **Priority** | id > class > tag |
-| **React এ** | `className` |
-| **সবচেয়ে বড় ভুল** | একই id দুইবার দেওয়া |
- 
----
+
 
 
 
