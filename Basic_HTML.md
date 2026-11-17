@@ -247,19 +247,90 @@ H<sub>2</sub>O
  
 ---
  
-### Semantic Tags 
-HTML এর এমন ট্যাগ যেগুলো দিয়ে ওয়েবপেজের আলাদা আলাদা অংশের অর্থ বোঝানো হয় (যেমন header, footer, nav ইত্যাদি), যাতে ব্রাউজার ও মানুষ দুজনেই সহজে বুঝতে পারে কোন অংশটা কী কাজ করছে। এগুলো ব্যবহার করলে কোড সহজে বুঝা যায় এবং ওয়েবপেজ সুন্দরভাবে সাজানো থাকে। 
-**`উদাহরণ:`**
- 
+
+### Semantic Tags — অর্থবহ ট্যাগ
+
+HTML-এর এমন কিছু ট্যাগ, যেগুলো দিয়ে ওয়েবপেজের বিভিন্ন অংশের অর্থ ও কাজ বোঝানো হয়। যেমন: `header`, `footer`, `nav` ইত্যাদি। এসব ট্যাগ ব্যবহারের ফলে ব্রাউজার ও ডেভেলপার উভয়েই সহজে বুঝতে পারে ওয়েবপেজের কোন অংশটি কী কাজ করছে। এতে কোড পড়া, বোঝা এবং মেইনটেইন করা সহজ হয়।
+
+---
+
+### Types of HTML Elements
+
+#### 1. Non-Semantic Elements
+
+যেসব HTML ট্যাগ থেকে কনটেন্টের ধরন বা উদ্দেশ্য সম্পর্কে নির্দিষ্ট কোনো ধারণা পাওয়া যায় না, সেগুলোকে Non-Semantic Elements বলে।
+
+**Examples:**
+
+- `<div>` — Block-level content group করতে ব্যবহৃত হয়।
+- `<span>` — Inline content group করতে ব্যবহৃত হয়।
+
+#### 2. Semantic Elements
+
+যেসব HTML ট্যাগ নিজের নামের মাধ্যমেই কনটেন্টের ধরন বা উদ্দেশ্য সম্পর্কে ধারণা দেয়, সেগুলোকে Semantic Elements বলে।
+
+**Examples:**
+
+- `<header>` — ওয়েবপেজের উপরের অংশ।
+- `<nav>` — Navigation menu।
+- `<main>` — পেজের মূল content।
+- `<section>` — নির্দিষ্ট content section।
+- `<article>` — স্বতন্ত্র লেখা বা post।
+- `<aside>` — Sidebar বা অতিরিক্ত information।
+- `<footer>` — ওয়েবপেজের নিচের অংশ।
+- `<img>` — Image প্রদর্শন করে।
+- `<table>` — Table আকারে data প্রদর্শন করে।
+
+---
+
+### Example
+
 ```html
-<header>এখানে website এর উপরের অংশ থাকে</header>
-<nav>এখানে navigation menu থাকে</nav>
-<main>এখানে page এর মূল content থাকে</main>
-<section>একটি নির্দিষ্ট অংশ</section>
-<article>একটি স্বতন্ত্র লেখা বা post</article>
-<aside>পাশের অংশ — যেমন sidebar</aside>
-<footer>এখানে website এর নিচের অংশ থাকে</footer>
+<!-- উপরের অংশ -->
+<header>Website Header</header>
+
+<!-- menu -->
+<nav>Navigation Menu</nav>
+
+<main>
+  <!-- একটা নির্দিষ্ট অংশ -->
+  <section>
+    <h2>About Us</h2>
+    <p>Section Content</p>
+  </section>
+
+  <!-- স্বতন্ত্র post -->
+  <article>
+    <h2>Blog Post</h2>
+    <p>Article Content</p>
+  </article>
+
+  <!-- পাশের অংশ -->
+  <aside>Sidebar Content</aside>
+</main>
+
+<!-- নিচের অংশ -->
+<footer>Website Footer</footer>
+
+<!-- Non-semantic: শুধু group করার জন্য -->
+<div>Normal Container</div>
+<span>Inline Content</span>
 ```
+
+---
+
+### Remember
+
+- Semantic Elements কনটেন্টের অর্থ ও উদ্দেশ্য প্রকাশ করে।
+- Non-Semantic Elements কনটেন্টকে group বা organize করতে সাহায্য করে।
+- Semantic HTML ব্যবহার করলে কোড আরও readable, maintainable এবং accessible হয়।
+
+> 💡 **Tips:**
+> - Tag এর নাম পড়েই যদি content বোঝা যায়, তাহলে ওটা semantic।
+> - `<div>` আর `<span>` একদম বাদ দিতে হবে না। যেখানে কোনো semantic tag মানায় না, সেখানে এগুলো ব্যবহার করো।
+> - `<main>` একটা page এ শুধু **একটাই** থাকবে।
+> - Semantic tag use করলে **SEO** আর **accessibility** দুটোই ভালো হয়।
+> - `<img>` এ সবসময় `alt` দিও, এতে screen reader ছবির মানে বুঝতে পারে।
 
  
 ---
